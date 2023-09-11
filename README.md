@@ -1,4 +1,4 @@
-# Vhg
+# Von Herff Gallery
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -7,8 +7,14 @@
 
 ## Start the app
 
-To start the development server run `nx serve vhg`. Open your browser and navigate to http://localhost:4200/. Happy coding!
+To start the development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:4200/.
 
+To start the app in Docker container locally in production mode, run
+
+`pnpm exec nx container vhg`
+`docker run -p 3000:3000 -t beldenschroeder/vhg:latest`
+
+Open your browser and navigate to http://localhost:3000/.
 
 ## Generate code
 
