@@ -24,13 +24,13 @@ dependencies:
     specifier: 5.3.6
     version: 5.3.6(@babel/core@7.22.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
   tslib:
-    specifier: ^2.3.0
-    version: 2.6.2
+    specifier: 2.3.0
+    version: 2.3.0
 
 devDependencies:
   '@nx-tools/nx-container':
     specifier: ^5.0.3
-    version: 5.0.3(@nx/devkit@16.8.1)(dotenv@16.3.1)(tslib@2.6.2)
+    version: 5.0.3(@nx/devkit@16.8.1)(dotenv@16.3.1)(tslib@2.3.0)
   '@nx/cypress':
     specifier: 16.8.1
     version: 16.8.1(@types/node@18.14.2)(cypress@13.0.0)(eslint@8.46.0)(nx@16.8.1)(typescript@5.1.6)
@@ -2017,7 +2017,7 @@ packages:
     hasBin: true
     dependencies:
       nx: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.3.0
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
@@ -2048,7 +2048,7 @@ packages:
       - '@swc/core'
       - debug
 
-  /@nx-tools/core@5.0.3(@nx/devkit@16.8.1)(tslib@2.6.2):
+  /@nx-tools/core@5.0.3(@nx/devkit@16.8.1)(tslib@2.3.0):
     resolution: {integrity: sha512-Ao3hmQ9DC+E8d2bdR2xqix0cmHsCrZxe0GDNZfOgfCde1tUppPJ2Po/m3iFxI5gEFWuEEsCQFm9CRtaMuyc1Dg==}
     peerDependencies:
       '@nx/devkit': ^16.0.0
@@ -2058,24 +2058,24 @@ packages:
       '@nx/devkit': 16.8.1(nx@16.8.1)
       chalk: 4.1.2
       ci-info: 3.8.0
-      tslib: 2.6.2
+      tslib: 2.3.0
     dev: true
 
-  /@nx-tools/nx-container@5.0.3(@nx/devkit@16.8.1)(dotenv@16.3.1)(tslib@2.6.2):
+  /@nx-tools/nx-container@5.0.3(@nx/devkit@16.8.1)(dotenv@16.3.1)(tslib@2.3.0):
     resolution: {integrity: sha512-jihsDiLlPNrf0obWMovAZ0ZwlD4lKCtzqP0KTw0j2cltmYyeAA6py05hHpQ+iDmx1z0c4935QYTN9RmJWzduZw==}
     peerDependencies:
       '@nx/devkit': ^16.0.0
       dotenv: '>=10.0.0'
       tslib: ^2.5.3
     dependencies:
-      '@nx-tools/core': 5.0.3(@nx/devkit@16.8.1)(tslib@2.6.2)
+      '@nx-tools/core': 5.0.3(@nx/devkit@16.8.1)(tslib@2.3.0)
       '@nx/devkit': 16.8.1(nx@16.8.1)
       csv-parse: 5.4.0
       dotenv: 16.3.1
       handlebars: 4.7.7
       semver: 7.5.4
       tmp: 0.2.1
-      tslib: 2.6.2
+      tslib: 2.3.0
     dev: true
 
   /@nx/cypress@16.8.1(@types/node@18.14.2)(cypress@13.0.0)(eslint@8.46.0)(nx@16.8.1)(typescript@5.1.6):
@@ -2094,7 +2094,7 @@ packages:
       cypress: 13.0.0
       detect-port: 1.5.1
       semver: 7.5.3
-      tslib: 2.6.2
+      tslib: 2.3.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -2121,7 +2121,7 @@ packages:
       nx: 16.8.1
       semver: 7.5.3
       tmp: 0.2.1
-      tslib: 2.6.2
+      tslib: 2.3.0
 
   /@nx/eslint-plugin@16.8.1(@types/node@18.14.2)(@typescript-eslint/parser@5.60.1)(eslint-config-prettier@8.1.0)(eslint@8.46.0)(nx@16.8.1)(typescript@5.1.6):
     resolution: {integrity: sha512-UhOtC1zeGytfMtsVSa3r3FbUIUtXLjtvBtZvr/vr8Ff1QSMVfTYwhVOqctYsBVYDpJonwyz3vm95SOHbBlSw6A==}
@@ -2143,7 +2143,7 @@ packages:
       eslint-config-prettier: 8.1.0(eslint@8.46.0)
       jsonc-eslint-parser: 2.3.0
       semver: 7.5.3
-      tslib: 2.6.2
+      tslib: 2.3.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -2173,7 +2173,7 @@ packages:
       jest-resolve: 29.6.4
       jest-util: 29.6.3
       resolve.exports: 1.1.0
-      tslib: 2.6.2
+      tslib: 2.3.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -2223,7 +2223,7 @@ packages:
       source-map-support: 0.5.19
       ts-node: 10.9.1(@types/node@18.14.2)(typescript@5.1.6)
       tsconfig-paths: 4.2.0
-      tslib: 2.6.2
+      tslib: 2.3.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -2249,7 +2249,7 @@ packages:
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.1.6)
       eslint: 8.46.0
       tmp: 0.2.1
-      tslib: 2.6.2
+      tslib: 2.3.0
       typescript: 5.1.6
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -2282,7 +2282,7 @@ packages:
       ignore: 5.2.4
       next: 13.4.1(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)
       semver: 7.5.3
-      tslib: 2.6.2
+      tslib: 2.3.0
       url-loader: 4.1.1(webpack@5.88.2)
       webpack-merge: 5.9.0
     transitivePeerDependencies:
@@ -2395,7 +2395,7 @@ packages:
       chalk: 4.1.2
       file-loader: 6.2.0(webpack@5.88.2)
       minimatch: 3.0.5
-      tslib: 2.6.2
+      tslib: 2.3.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -2419,7 +2419,7 @@ packages:
       chalk: 4.1.2
       detect-port: 1.5.1
       http-server: 14.1.1
-      tslib: 2.6.2
+      tslib: 2.3.0
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -2442,7 +2442,7 @@ packages:
       ignore: 5.2.4
       nx: 16.8.1
       rxjs: 7.8.1
-      tslib: 2.6.2
+      tslib: 2.3.0
       yargs-parser: 21.1.1
     transitivePeerDependencies:
       - '@swc-node/register'
@@ -4384,7 +4384,7 @@ packages:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.3.0
 
   /dotenv-expand@10.0.0:
     resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
@@ -6547,7 +6547,7 @@ packages:
   /lower-case@2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.3.0
 
   /lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -6737,7 +6737,7 @@ packages:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.2
+      tslib: 2.3.0
 
   /node-addon-api@3.2.1:
     resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
@@ -6838,7 +6838,7 @@ packages:
       tar-stream: 2.2.0
       tmp: 0.2.1
       tsconfig-paths: 4.2.0
-      tslib: 2.6.2
+      tslib: 2.3.0
       v8-compile-cache: 2.3.0
       yargs: 17.7.2
       yargs-parser: 21.1.1
@@ -7366,7 +7366,7 @@ packages:
   /rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.3.0
 
   /safe-array-concat@1.0.1:
     resolution: {integrity: sha512-6XbUAseYE2KtOuGueyeobCySj9L4+66Tn6KQMOPQJrAJEowYKW/YR/MGJZl7FdydUdaFu4LYyDZjxf4/Nmo23Q==}
@@ -7518,7 +7518,7 @@ packages:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.2
+      tslib: 2.3.0
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
@@ -7961,6 +7961,9 @@ packages:
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
+
+  /tslib@2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}

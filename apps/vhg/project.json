@@ -66,18 +66,20 @@
     "container": {
       "executor": "@nx-tools/nx-container:build",
       "dependsOn": ["build"],
+      "defaultConfiguration": "local",
       "options": {
         "engine": "docker",
-        "metadata": {
-          "images": ["beldenschroeder/vhg"],
-          "load": true,
-          "tags": [
-            "type=schedule",
-            "type=ref,event=branch",
-            "type=ref,event=tag",
-            "type=ref,event=pr",
-            "type=sha,prefix=sha-"
-          ]
+        "context": "dist/apps/vhg",
+        "file": "apps/vhg/Dockerfile"
+      },
+      "configurations": {
+        "local": {
+          "tags": ["beldenschroeder/vhg:latest"],
+          "push": false
+        },
+        "production": {
+          "tags": ["beldenschroeder/vhg:latest"],
+          "push": true
         }
       }
     }
