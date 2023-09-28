@@ -7,7 +7,7 @@
 
 ## Start the app
 
-To start the development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:4200/.
+To start the Development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:4200/.
 
 To start the app in Docker container locally in Production mode, run
 
