@@ -3,13 +3,13 @@
 import PaintingCollection from '../../components/painting-collection/painting-collection';
 
 /* eslint-disable-next-line */
-export interface PaintingsProps {}
+// export interface PaintingsProps {}
 
 // const StyledPaintings = styled.div`
 //   color: pink;
 // `;
 
-export function Paintings(props: PaintingsProps) {
+export default function Paintings() {
   return (
     // <StyledPaintings>
     <div>
@@ -30,4 +30,4 @@ export function Paintings(props: PaintingsProps) {
 //   };
 // };
 
-export default Paintings;
+// export default Paintings;

@@ -11,8 +11,10 @@ To start the Development server run `pnpm exec nx serve vhg`. Open your browser 
 
 To start the app in Docker container locally in Production mode, run
 
-`pnpm exec nx container vhg`
-`docker run -p 3000:3000 -t beldenschroeder/vhg:latest`
+```console
+pnpm exec nx container vhg
+docker run -p 3000:3000 -t beldenschroeder/vhg:latest
+```
 
 Open your browser and navigate to http://localhost:3000/.
 
@@ -28,19 +30,19 @@ Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-
 
 To execute tasks with Nx use the following syntax:
 
-```
+```console
 nx <target> <project> <...options>
 ```
 
 You can also run multiple targets:
 
-```
+```console
 nx run-many -t <target1> <target2>
 ```
 
 ..or add `-p` to filter specific projects
 
-```
+```console
 nx run-many -t <target1> <target2> -p <proj1> <proj2>
 ```
 

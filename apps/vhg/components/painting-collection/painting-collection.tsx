@@ -1,7 +1,7 @@
 // import styled from 'styled-components';
 
 /* eslint-disable-next-line */
-export interface PaintingCollectionProps {}
+// export interface PaintingCollectionProps {}
 
 // const StyledPaintingCollection = styled.div`
 //   color: pink;
@@ -22,9 +22,7 @@ async function getPaintings() {
   return res.json();
 }
 
-export default async function PaintingCollection(
-  props: PaintingCollectionProps
-) {
+export default async function PaintingCollection() {
 
   const paintings = await getPaintings();
 
