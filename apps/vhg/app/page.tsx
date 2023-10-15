@@ -1,12 +1,33 @@
 'use client';
 
 import styled from 'styled-components';
+// import { PrismaClient } from '@prisma/client';
+// import * as prisma from '@vhg/prisma';
+// import { GetStaticProps, InferGetStaticPropsType } from 'next';
+// import { Key } from 'react';
+
+// export const getStaticProps: GetStaticProps = async () => {
+//   const posts = await (prisma as PrismaClient).post.findMany({
+//     where: { published: true },
+//     include: {
+//       author: {
+//         select: { name: true },
+//       }
+//     }
+//   });
+
+//   return {
+//     props: { posts },
+//     revalidate: 10,
+//   };
+// };
 
 const StyledPage = styled.div`
   .page {
   }
 `;
 
+// export default function Index({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
 export default async function Index() {
   /*
    * Replace the elements below with your own.
