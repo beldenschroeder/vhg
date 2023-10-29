@@ -22,8 +22,8 @@ Open your browser and navigate to http://localhost:3000/.
 After the Docker image is created, on the command line run
 
 ```console
-kubectl apply -f vhg-pod.yaml
-kubectl apply -f vhg-node-pod.yaml
+kubectl apply -f k8s/vhg-pod.yaml
+kubectl apply -f k8s/vhg-node-port.yaml
 ```
 
 Open your browser and navigate to http://localhost:31515/.
