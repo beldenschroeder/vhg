@@ -6,27 +6,40 @@
 
 ## Start the app
 
+### Run app locally in Development mode
+
 To start the Development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:4200/.
+
+### Run app locally in a Docker container in Production mode
 
 To start the app in Docker container locally in Production mode, run
 
 ```console
 pnpm exec nx container vhg
-docker run -p 3000:3000 -t beldenschroeder/vhg:latest
+docker run -p 3000:3000 -t beldenschroeder/vhg:v1
 ```
+
+> NOTE: If you prefer to make updates to the app, you can give a new version tag to image by updating it in _/apps/vhg/project.json_, building the project again, and running to following imparitive command to update the image
+>
+> ```console
+> kubectl set image deployment/vhg-deployment vhg=beldenschroeder/vhg:[tag]
+> ```
+>
+> where _[tag]_ is the new tag name.
 
 Open your browser and navigate to http://localhost:3000/.
 
-## Run app locally using Kubernetes
+### Run app locally using Kubernetes
 
 After the Docker image is created, on the command line run
 
 ```console
-kubectl apply -f k8s/vhg-pod.yaml
-kubectl apply -f k8s/vhg-node-port.yaml
+kubectl apply -f k8s/
 ```
 
-Open your browser and navigate to http://localhost:31515/.
+Push the image to Docker Hub.
+
+Open your browser and navigate to http://localhost:80/.
 
 ## Generate code
 
