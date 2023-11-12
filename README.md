@@ -41,6 +41,47 @@ Push the image to Docker Hub.
 
 Open your browser and navigate to http://localhost:80/.
 
+## Access the Kubernetes Dashboard
+
+You can deploy the Von Herff Gallery to a Kubernetes cluster and manage cluster resources via the Kubernetes Dashboard. To do this, run the deploy command as explained in [Deploy and Access the Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui).
+
+Then, run
+
+```console
+kubectl proxy
+```
+
+Then, visit the following URL in your browser to access your Dashboard
+
+```console
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+```
+
+Obtain the token for this user by running the following in your terminal
+
+```console
+kubectl version
+```
+
+If your Kubernetes server version is v1.24 or higher you must run the following command
+
+```console
+kubectl -n kubernetes-dashboard create token admin-user
+```
+
+If your Kubernetes server version is older than v1.24 you must run the following command
+
+```console
+kubectl -n kubernetes-dashboard get secret $(kubectl -n kubernetes-dashboard get sa/admin-user -o jsonpath="{.secrets[0].name}") -o go-template="{{.data.token | base64decode}}"
+```
+
+Copy the token from the above output and use it to log in at the dashboard.
+
+After a successful login, you should now be redirected to the Kubernetes Dashboard.
+
+The above steps can be found in the official documentation:
+https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+
 ## Generate code
 
 If you happen to use Nx plugins, you can leverage code generators that might come with it.
