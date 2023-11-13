@@ -37,6 +37,14 @@ After the Docker image is created, on the command line run
 kubectl apply -f k8s/
 ```
 
+Install the Ingress-Nginx Controller by running
+
+```console
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+```
+
+More about the installation of how to install using Helm can be found at the [Installation Guide](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start).
+
 Push the image to Docker Hub.
 
 Open your browser and navigate to http://localhost:80/.
