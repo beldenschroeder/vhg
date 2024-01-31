@@ -49,45 +49,7 @@ Push the image to Docker Hub.
 
 Open your browser and navigate to http://localhost:80/.
 
-## Run app remotely using Kubernetes
-
-After the Docker image is created and pushed to Docker Hub, build the AWS infrastructure.
-
-Under _aws/vpc_, run
-
-```
-terraform init
-terraform plan
-terraform apply
-```
-
-Under _aws/eks_, run
-
-```
-terraform init
-terraform plan
-terraform apply
-```
-
-On the command line, update the Kubernetes config by running
-
-```console
-aws eks update-kubeconfig --name vhg-cluster --region us-east-1
-```
-
-Then, run
-
-```console
-kubectl apply -f k8s/
-```
-
-Install the Ingress-Nginx Controller by running
-
-```console
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
-```
-
-## Access the Kubernetes Dashboard
+### Access the Kubernetes Dashboard
 
 You can deploy the Von Herff Gallery to a Kubernetes cluster and manage cluster resources via the Kubernetes Dashboard. To do this, run the deploy command as explained in [Deploy and Access the Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui).
 
@@ -128,11 +90,61 @@ After a successful login, you should now be redirected to the Kubernetes Dashboa
 The above steps can be found in the official documentation:
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 
+## Run app remotely using Kubernetes
+
+After the Docker image is created and pushed to Docker Hub, build the AWS infrastructure.
+
+Under _aws/vpc_, run
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+Under _aws/eks_, run
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+On the command line, update the Kubernetes config by running
+
+```console
+aws eks update-kubeconfig --name vhg-cluster --region us-east-1
+```
+
+Then, run
+
+```console
+kubectl apply -f k8s/vhg-deployment.yaml
+kubectl apply -f k8s/vhg-cluster-ip-service.yaml
+kubectl apply -f k8s/vhg-ingress-service.yaml
+```
+
+Install the Ingress-Nginx Controller by running
+
+```console
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+```
+
 ## Tear down the infrastructure
 
 ### Teardown from local setup
 
-TODO: Fill in later. Similar to teardown for remote setup (see below).
+Uninstall the Ingress-Nginx Controller by running
+
+```console
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+```
+
+Delete all the K8s objects by going to _k8s/_ and running
+
+```console
+kubectl delete -f k8s/
+```
 
 ### Teardown from remote setup
 

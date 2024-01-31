@@ -52,39 +52,6 @@
         ]
       }
     },
-    "prisma": {
-      "name": "prisma",
-      "type": "lib",
-      "data": {
-        "name": "prisma",
-        "root": "libs/vhg",
-        "$schema": "../../node_modules/nx/schemas/project-schema.json",
-        "sourceRoot": "libs/vhg/src",
-        "projectType": "library",
-        "tags": [],
-        "targets": {
-          "lint": {
-            "inputs": [
-              "default",
-              "{workspaceRoot}/.eslintrc.json",
-              "{workspaceRoot}/.eslintignore",
-              "{workspaceRoot}/eslint.config.js"
-            ],
-            "executor": "@nx/linter:eslint",
-            "outputs": [
-              "{options.outputFile}"
-            ],
-            "options": {
-              "lintFilePatterns": [
-                "libs/vhg/**/*.{ts,tsx,js,jsx}"
-              ]
-            },
-            "configurations": {}
-          }
-        },
-        "implicitDependencies": []
-      }
-    },
     "vhg": {
       "name": "vhg",
       "type": "app",
@@ -210,6 +177,39 @@
           }
         },
         "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "prisma": {
+      "name": "prisma",
+      "type": "lib",
+      "data": {
+        "name": "prisma",
+        "root": "libs/vhg",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "libs/vhg/src",
+        "projectType": "library",
+        "tags": [],
+        "targets": {
+          "lint": {
+            "inputs": [
+              "default",
+              "{workspaceRoot}/.eslintrc.json",
+              "{workspaceRoot}/.eslintignore",
+              "{workspaceRoot}/eslint.config.js"
+            ],
+            "executor": "@nx/linter:eslint",
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "options": {
+              "lintFilePatterns": [
+                "libs/vhg/**/*.{ts,tsx,js,jsx}"
+              ]
+            },
+            "configurations": {}
+          }
+        },
         "implicitDependencies": []
       }
     }
@@ -10242,18 +10242,6 @@
         "type": "static"
       }
     ],
-    "prisma": [
-      {
-        "source": "prisma",
-        "target": "npm:@testing-library/react",
-        "type": "static"
-      },
-      {
-        "source": "prisma",
-        "target": "npm:@prisma/client",
-        "type": "static"
-      }
-    ],
     "vhg": [
       {
         "source": "vhg",
@@ -10283,6 +10271,18 @@
       {
         "source": "vhg",
         "target": "npm:@nx/next",
+        "type": "static"
+      }
+    ],
+    "prisma": [
+      {
+        "source": "prisma",
+        "target": "npm:@testing-library/react",
+        "type": "static"
+      },
+      {
+        "source": "prisma",
+        "target": "npm:@prisma/client",
         "type": "static"
       }
     ],
