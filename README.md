@@ -16,7 +16,7 @@ To start the app in Docker container locally in Production mode, run
 
 ```console
 pnpm exec nx container vhg
-docker run -p 3000:3000 -t beldenschroeder/vhg:v1
+docker run -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
 > NOTE: If you prefer to make updates to the app, you can give a new version tag to image by updating it in _/apps/vhg/project.json_, building the project again, and running to following imparitive command to update the image
@@ -48,6 +48,44 @@ More about the installation of how to install using Helm can be found at the [In
 Push the image to Docker Hub.
 
 Open your browser and navigate to http://localhost:80/.
+
+## Run app remotely using Kubernetes
+
+After the Docker image is created and pushed to Docker Hub, build the AWS infrastructure.
+
+Under _aws/vpc_, run
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+Under _aws/eks_, run
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+On the command line, update the Kubernetes config by running
+
+```console
+aws eks update-kubeconfig --name vhg-cluster --region us-east-1
+```
+
+Then, run
+
+```console
+kubectl apply -f k8s/
+```
+
+Install the Ingress-Nginx Controller by running
+
+```console
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+```
 
 ## Access the Kubernetes Dashboard
 
@@ -89,6 +127,59 @@ After a successful login, you should now be redirected to the Kubernetes Dashboa
 
 The above steps can be found in the official documentation:
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+
+## Tear down the infrastructure
+
+### Teardown from local setup
+
+TODO: Fill in later. Similar to teardown for remote setup (see below).
+
+### Teardown from remote setup
+
+Uninstall the Ingress-Nginx Controller by running
+
+```console
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+```
+
+Delete all the K8s objects by going to _k8s/_ and running
+
+```console
+kubectl delete -f vhg-ingress-service.yaml
+kubectl delete -f vhg-cluster-ip-service.yaml
+kubectl delete -f vhg-deployment.yaml
+```
+
+Destroy all the EKS Terraform setup by going to _aws/eks_ and running
+
+```console
+terraform destroy
+```
+
+Destroy all the VPC Terraform setup by going to _aws/vpc_ and running
+
+```console
+terraform destroy
+```
+
+## TODO: Outdated. Remove later.
+## Building the Infrastructure on AWS
+
+With and AWS account set up, run the Terraform modules in _/terraform/_. Most of the files in her were inspired by [Create AWS EKS Fargate Using Terraform (EFS, HPA, Ingress, ALB, IRSA, Kubernetes, Helm, Tutorial)](https://antonputra.com/amazon/create-aws-eks-fargate-using-terraform/).
+
+While just inside the _/terraform/_ directory, run
+
+```console
+terraform apply
+```
+
+Update the Kubernetes context by running
+
+```console
+aws eks update-kubeconfig --name vhg --region us-east-1
+```
+
+TODO: (Continue to add more documentation here.)
 
 ## Generate code
 

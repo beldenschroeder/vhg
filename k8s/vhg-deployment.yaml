@@ -1,19 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: vhg-deployment
+  # name: vhg-deployment
+  name: website
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      component: web
+      # component: web
+      app: website
   template:
     metadata:
       labels:
-        component: web
+        # component: web
+        app: website
     spec:
       containers:
-        - name: vhg
-          image: beldenschroeder/vhg
+        # - name: vhg
+        - name: website
+          image: beldenschroeder/vhg:1.0
+          # image: devteds/demo-bookstore-website:1.0
+          imagePullPolicy: Always # TODO: Remove later (from Udemy course)
           ports:
             - containerPort: 3000
+            # - containerPort: 80

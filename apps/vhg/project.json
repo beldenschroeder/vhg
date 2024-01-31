@@ -74,11 +74,11 @@
       },
       "configurations": {
         "local": {
-          "tags": ["beldenschroeder/vhg:v1"],
+          "tags": ["beldenschroeder/vhg:1.0"],
           "push": false
         },
         "production": {
-          "tags": ["beldenschroeder/vhg:v1"],
+          "tags": ["beldenschroeder/vhg:1.0"],
           "push": true
         }
       }
