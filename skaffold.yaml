@@ -7,7 +7,7 @@ build:
   # - image: lukondefmwila/express-test
   - image: beldenschroeder/vhg
     docker:
-      dockerfile: Dockerfile
+      dockerfile: ./apps/vhg/Dockerfile
 # test:
 #   - context: .
 #     # image: lukondefmwila/express-test
