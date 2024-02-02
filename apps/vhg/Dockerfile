@@ -35,7 +35,7 @@ RUN apk add --no-cache libc6-compat
 RUN apk add g++ make py3-pip
 WORKDIR /usr/src/app
 COPY package.json ./
-RUN npm install --omit=dev
+RUN npm install --omit=dev --legacy-peer-deps
 
 # Production image, copy all the files and run next
 FROM docker.io/node:lts-alpine as runner
