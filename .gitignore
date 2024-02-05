@@ -61,7 +61,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# misc
+# Misc
 /.sass-cache
 /connect.lock
 /coverage
@@ -79,3 +79,6 @@ Thumbs.db
 # Next.js
 .next
 .vercel
+
+# Nx
+.nx/cache

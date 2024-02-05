@@ -63,6 +63,54 @@
   },
   "nxJsonPlugins": [],
   "projectFileMap": {
+    "prisma": [
+      {
+        "file": "libs/vhg/.eslintrc.json",
+        "hash": "11012487992710232822"
+      },
+      {
+        "file": "libs/vhg/README.md",
+        "hash": "11665089717599422445"
+      },
+      {
+        "file": "libs/vhg/project.json",
+        "hash": "5067659306541498624"
+      },
+      {
+        "file": "libs/vhg/src/index.ts",
+        "hash": "12409054776955782274"
+      },
+      {
+        "file": "libs/vhg/src/lib/hello-server.tsx",
+        "hash": "2397568674684759047"
+      },
+      {
+        "file": "libs/vhg/src/lib/prisma.spec.tsx",
+        "hash": "9234824240574294899",
+        "deps": [
+          "npm:@testing-library/react"
+        ]
+      },
+      {
+        "file": "libs/vhg/src/lib/prisma.tsx",
+        "hash": "6896262275119056741",
+        "deps": [
+          "npm:@prisma/client"
+        ]
+      },
+      {
+        "file": "libs/vhg/src/server.ts",
+        "hash": "8912437808649717296"
+      },
+      {
+        "file": "libs/vhg/tsconfig.json",
+        "hash": "14088618039610991405"
+      },
+      {
+        "file": "libs/vhg/tsconfig.lib.json",
+        "hash": "1536859351713546153"
+      }
+    ],
     "vhg-e2e": [
       {
         "file": "apps/vhg-e2e/.eslintrc.json",
@@ -112,7 +160,7 @@
       },
       {
         "file": "apps/vhg/Dockerfile",
-        "hash": "10276759122001313568"
+        "hash": "7611386875412568954"
       },
       {
         "file": "apps/vhg/app/api/hello/route.ts",
@@ -199,54 +247,6 @@
       {
         "file": "apps/vhg/tsconfig.spec.json",
         "hash": "6922413205408300107"
-      }
-    ],
-    "prisma": [
-      {
-        "file": "libs/vhg/.eslintrc.json",
-        "hash": "11012487992710232822"
-      },
-      {
-        "file": "libs/vhg/README.md",
-        "hash": "11665089717599422445"
-      },
-      {
-        "file": "libs/vhg/project.json",
-        "hash": "5067659306541498624"
-      },
-      {
-        "file": "libs/vhg/src/index.ts",
-        "hash": "12409054776955782274"
-      },
-      {
-        "file": "libs/vhg/src/lib/hello-server.tsx",
-        "hash": "2397568674684759047"
-      },
-      {
-        "file": "libs/vhg/src/lib/prisma.spec.tsx",
-        "hash": "9234824240574294899",
-        "deps": [
-          "npm:@testing-library/react"
-        ]
-      },
-      {
-        "file": "libs/vhg/src/lib/prisma.tsx",
-        "hash": "6896262275119056741",
-        "deps": [
-          "npm:@prisma/client"
-        ]
-      },
-      {
-        "file": "libs/vhg/src/server.ts",
-        "hash": "8912437808649717296"
-      },
-      {
-        "file": "libs/vhg/tsconfig.json",
-        "hash": "14088618039610991405"
-      },
-      {
-        "file": "libs/vhg/tsconfig.lib.json",
-        "hash": "1536859351713546153"
       }
     ]
   }
