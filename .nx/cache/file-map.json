@@ -111,48 +111,6 @@
         "hash": "1536859351713546153"
       }
     ],
-    "vhg-e2e": [
-      {
-        "file": "apps/vhg-e2e/.eslintrc.json",
-        "hash": "14060216369337943343"
-      },
-      {
-        "file": "apps/vhg-e2e/cypress.config.ts",
-        "hash": "15414076024138857470",
-        "deps": [
-          "npm:cypress",
-          "npm:@nx/cypress"
-        ]
-      },
-      {
-        "file": "apps/vhg-e2e/project.json",
-        "hash": "926515909829735578"
-      },
-      {
-        "file": "apps/vhg-e2e/src/e2e/app.cy.ts",
-        "hash": "11171265331642353116"
-      },
-      {
-        "file": "apps/vhg-e2e/src/fixtures/example.json",
-        "hash": "11614668686582597233"
-      },
-      {
-        "file": "apps/vhg-e2e/src/support/app.po.ts",
-        "hash": "11157016311132186162"
-      },
-      {
-        "file": "apps/vhg-e2e/src/support/commands.ts",
-        "hash": "7314691991044890572"
-      },
-      {
-        "file": "apps/vhg-e2e/src/support/e2e.ts",
-        "hash": "3666078656922506009"
-      },
-      {
-        "file": "apps/vhg-e2e/tsconfig.json",
-        "hash": "1788248097864730386"
-      }
-    ],
     "vhg": [
       {
         "file": "apps/vhg/.eslintrc.json",
@@ -247,6 +205,48 @@
       {
         "file": "apps/vhg/tsconfig.spec.json",
         "hash": "6922413205408300107"
+      }
+    ],
+    "vhg-e2e": [
+      {
+        "file": "apps/vhg-e2e/.eslintrc.json",
+        "hash": "14060216369337943343"
+      },
+      {
+        "file": "apps/vhg-e2e/cypress.config.ts",
+        "hash": "15414076024138857470",
+        "deps": [
+          "npm:cypress",
+          "npm:@nx/cypress"
+        ]
+      },
+      {
+        "file": "apps/vhg-e2e/project.json",
+        "hash": "926515909829735578"
+      },
+      {
+        "file": "apps/vhg-e2e/src/e2e/app.cy.ts",
+        "hash": "11171265331642353116"
+      },
+      {
+        "file": "apps/vhg-e2e/src/fixtures/example.json",
+        "hash": "11614668686582597233"
+      },
+      {
+        "file": "apps/vhg-e2e/src/support/app.po.ts",
+        "hash": "11157016311132186162"
+      },
+      {
+        "file": "apps/vhg-e2e/src/support/commands.ts",
+        "hash": "7314691991044890572"
+      },
+      {
+        "file": "apps/vhg-e2e/src/support/e2e.ts",
+        "hash": "3666078656922506009"
+      },
+      {
+        "file": "apps/vhg-e2e/tsconfig.json",
+        "hash": "1788248097864730386"
       }
     ]
   }
