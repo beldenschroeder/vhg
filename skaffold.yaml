@@ -6,9 +6,9 @@ build:
   artifacts:
   # - image: lukondefmwila/express-test
   - image: beldenschroeder/vhg
-    context: dist/apps/vhg
+    # context: dist/apps/vhg
     docker:
-      dockerfile: ../../../apps/vhg/Dockerfile
+      dockerfile: ./apps/vhg/Dockerfile
 # test:
 #   - context: .
 #     # image: lukondefmwila/express-test
