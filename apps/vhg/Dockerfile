@@ -56,7 +56,7 @@ COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 # COPY ./ ./
 COPY --from=deps /usr/src/app/package.json ./package.json
 COPY dist/apps/vhg/public ./public
-COPY dist/apps/vhg/.next ./.next
+COPY dist/apps/vhg/.next ./
 
 # Run the application under "node" user by default
 RUN chown -R node:node .
