@@ -34,7 +34,7 @@ FROM docker.io/node:lts-alpine as dependencies
 RUN apk add --no-cache libc6-compat
 RUN apk add g++ make py3-pip
 WORKDIR /usr/src/app
-# COPY package.json ./
+# COPY package.json ./ # TODO: Uncomment to get local build of Dockerfile
 COPY dist/apps/vhg/package.json ./
 RUN npm install --omit=dev --legacy-peer-deps
 
@@ -53,8 +53,8 @@ WORKDIR /usr/src/app
 COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 
 # Copy built application files
-# COPY ./ ./
-COPY --from=deps /usr/src/app/package.json ./package.json
+# COPY ./ ./ # TODO: Uncomment to get local build of Dockerfile
+COPY --from=dependencies /usr/src/app/package.json ./package.json
 COPY dist/apps/vhg/public ./public
 COPY dist/apps/vhg/.next ./next
 
