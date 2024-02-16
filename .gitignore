@@ -77,7 +77,7 @@ Thumbs.db
 .env
 
 # Next.js
-.next
+# .next TODO: Uncomment if its not needed in the deploy
 .vercel
 
 # Nx
