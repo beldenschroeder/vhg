@@ -227,6 +227,17 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_re
 
 /***/ }),
 
+/***/ 1349:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 9248, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 1508, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 6118, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 6317, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 4850, 23))
+
+/***/ }),
+
 /***/ 2320:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -259,7 +270,7 @@ __webpack_require__.r(__webpack_exports__);
 //   };
 // };
 const StyledPage = styled_components__WEBPACK_IMPORTED_MODULE_1__/* ["default"].div.withConfig */ .ZP.div.withConfig({
-    componentId: "sc-6767c16-0"
+    componentId: "sc-4a72c659-0"
 })`
   .page {
   }
@@ -283,7 +294,7 @@ async function Index() {
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                     children: "Hi there, "
                                 }),
-                                "Welcome to the Von Herff Gallery website on Container 1.0! \uD83D\uDC4B"
+                                "Welcome to the Von Herff Gallery website on Container 2.0! \uD83D\uDC4B"
                             ]
                         })
                     }),
@@ -835,7 +846,7 @@ const { __esModule, $$typeof } = proxy;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [737,506,419], () => (__webpack_exec__(6963)));
+var __webpack_exports__ = __webpack_require__.X(0, [737,506,696], () => (__webpack_exec__(6963)));
 module.exports = __webpack_exports__;
 
 })();

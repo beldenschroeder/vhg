@@ -56,7 +56,7 @@ COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 # COPY ./ ./ # TODO: Uncomment to get local build of Dockerfile
 COPY --from=dependencies /usr/src/app/package.json ./package.json
 COPY dist/apps/vhg/public ./public
-COPY dist/apps/vhg/.next ./next
+COPY dist/apps/vhg/.next ./.next
 
 # Run the application under "node" user by default
 RUN chown -R node:node .
