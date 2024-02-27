@@ -70,7 +70,8 @@
       "options": {
         "engine": "docker",
         "context": "dist/apps/vhg",
-        "file": "apps/vhg/Dockerfile"
+        "file": "apps/vhg/Dockerfile",
+        "build-args": ["CONTAINER_CONTEXT=."]
       },
       "configurations": {
         "local": {
