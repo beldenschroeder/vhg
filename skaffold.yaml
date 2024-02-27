@@ -4,13 +4,12 @@ metadata:
   name: vhg
 build:
   artifacts:
-  # - image: lukondefmwila/express-test
   - image: beldenschroeder/vhg
     docker:
       dockerfile: ./apps/vhg/Dockerfile
+# TODO: Add a test step
 # test:
 #   - context: .
-#     # image: lukondefmwila/express-test
 #     image: beldenschroeder/vhg
 #     custom:
 #       - command: npm run test
