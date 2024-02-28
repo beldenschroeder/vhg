@@ -92,7 +92,7 @@ https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/cre
 Build the app by running the following Nx command:
 
 ```console
-npx nx build vhg
+pnpm exec nx build vhg
 ```
 
 Then, build the container and host it on Docker Hub with the following command:
