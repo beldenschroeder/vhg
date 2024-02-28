@@ -147,17 +147,13 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 
 ### Teardown from local setup
 
-Uninstall the Ingress-Nginx Controller by running
+For local runs using Kubernetes, run the following command
 
 ```console
-kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+kubectl delete -f manifests.yaml
 ```
 
-Delete all the K8s objects by going to _k8s/_ and running
-
-```console
-kubectl delete -f k8s/
-```
+If you ran the Kubernetes Dashboard, use the `kubectl delete` command as well to remove any other K8s objects created.
 
 ### Teardown from remote setup
 
