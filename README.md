@@ -6,48 +6,45 @@
 
 ## Start the app
 
-### Run app locally in Development mode
+### Run app locally in development mode
 
-To start the Development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:4200/.
+To start the development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:4200/.
 
-### Run app locally in a Docker container in Production mode
+### Run app locally in a Docker container in production mode
 
-To start the app in Docker container locally in Production mode, run
+Be sure to install and run [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+
+After the Docker Desktop's Deamon is running, start the app in a Docker container locally in production mode, run
 
 ```console
 pnpm exec nx container vhg
 docker run -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
-> NOTE: If you prefer to make updates to the app, you can give a new version tag to image by updating it in _/apps/vhg/project.json_, building the project again, and running to following imparitive command to update the image
->
-> ```console
-> kubectl set image deployment/vhg-deployment vhg=beldenschroeder/vhg:[tag]
-> ```
->
-> where _[tag]_ is the new tag name.
+> NOTE: If you prefer to make updates to the app, you can give a new version tag to image by updating it in _/apps/vhg/project.json_, building the project again and run the Docker image again, as shown earlier.
 
 Open your browser and navigate to http://localhost:3000/.
 
 ### Run app locally using Kubernetes
 
+#### Build app and container with Nx
+
 After the Docker image is created, on the command line run
 
 ```console
-kubectl apply -f k8s/
+kubectl apply -f manifests.yaml
 ```
 
-Install the Ingress-Nginx Controller by running
-
-```console
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
-```
-
-More about the installation of how to install using Helm can be found at the [Installation Guide](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start).
-
-Push the image to Docker Hub.
+Push the image to your Docker Hub account. One way to do this is to select to the "push to Hub" option in the context menu for you image listed in Docker Desktop.
 
 Open your browser and navigate to http://localhost:80/.
+
+> NOTE: If you prefer to make updates to the app, update _/apps/vhg/project.json_, build the project and its image using the Nx command, as described in the section **Run app locally in a Docker container in production mode**. Push the image to Docker Hub. Then, run the following imparitive command to update the image
+> ```console
+> kubectl set image deployment/vhg-deployment vhg=beldenschroeder/vhg:[tag]
+> ```
+>
+> where _[tag]_ is the new tag name.
 
 ### Access the Kubernetes Dashboard
 
@@ -89,6 +86,22 @@ After a successful login, you should now be redirected to the Kubernetes Dashboa
 
 The above steps can be found in the official documentation:
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+
+#### Build app with Nx and container with Skaffold
+
+Build the app by running the following Nx command:
+
+```console
+npx nx build vhg
+```
+
+Then, build the container and host it on Docker Hub with the following command:
+
+```console
+skaffold dev
+```
+
+Note that this generates a random container tag. You can find out what tag is by looking at the logs generated from running the `skaffold` command.
 
 ## Run app remotely using Kubernetes
 

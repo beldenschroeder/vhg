@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: express-test
+ name: vhg-deployment
 spec:
  replicas: 3
  selector:
    matchLabels:
-     app: express-test
+     app: vhg
  template:
    metadata:
      labels:
-       app: express-test
+       app: vhg
    spec:
      containers:
-     - name: express-test
-       # image: lukondefmwila/express-test
+     - name: vhg
        image: beldenschroeder/vhg
        resources:
           limits:
@@ -26,12 +25,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: express-test-svc
+  name: vhg-svc
 spec:
   selector:
-    app: express-test
+    app: vhg
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 8080
+    port: 80
     targetPort: 3000

@@ -259,7 +259,7 @@ __webpack_require__.r(__webpack_exports__);
 //   };
 // };
 const StyledPage = styled_components__WEBPACK_IMPORTED_MODULE_1__/* ["default"].div.withConfig */ .ZP.div.withConfig({
-    componentId: "sc-4a72c659-0"
+    componentId: "sc-3f47b650-0"
 })`
   .page {
   }
@@ -283,7 +283,7 @@ async function Index() {
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                     children: "Hi there, "
                                 }),
-                                "Welcome to the Von Herff Gallery website on Container 2.0! \uD83D\uDC4B"
+                                "Welcome to the Von Herff Gallery website on Container 1.1! \uD83D\uDC4B"
                             ]
                         })
                     }),
@@ -835,7 +835,7 @@ const { __esModule, $$typeof } = proxy;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [737,506,135], () => (__webpack_exec__(6963)));
+var __webpack_exports__ = __webpack_require__.X(0, [737,506,305], () => (__webpack_exec__(6963)));
 module.exports = __webpack_exports__;
 
 })();
