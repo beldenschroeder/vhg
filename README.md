@@ -139,7 +139,13 @@ On your AWS account, visit your Load Balancer's DNS to see the running site!
 
 ### Teardown from local setup
 
-For local runs using Kubernetes, run the following command
+For local runs using Kubernetes, switch to the Kubernetes context
+
+```console
+aws eks update-kubeconfig --name vhg-cluster --region us-east-1
+```
+
+Then, delete the manifests
 
 ```console
 kubectl delete -f manifests.yaml
@@ -149,7 +155,13 @@ If you ran the Kubernetes Dashboard, use the `kubectl delete` command as well to
 
 ### Teardown from remote setup
 
-Run the following command
+To tear down the remote setup, switch to the Kubernetes context
+
+```console
+aws eks update-kubeconfig --name vhg-cluster --region us-east-1
+```
+
+Then, delete the manifests
 
 ```console
 kubectl delete -f manifests.yaml
