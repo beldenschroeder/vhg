@@ -17,6 +17,7 @@ Be sure to install and run [Docker Desktop](https://www.docker.com/products/dock
 After the Docker Desktop's Deamon is running, start the app in a Docker container locally in production mode, run
 
 ```console
+pnpm i
 pnpm exec nx container vhg
 docker run -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
@@ -92,6 +93,7 @@ https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/cre
 Build the app by running the following Nx command:
 
 ```console
+pnpm i
 pnpm exec nx build vhg
 ```
 
@@ -103,45 +105,35 @@ skaffold dev
 
 Note that this generates a random container tag. You can find out what tag is by looking at the logs generated from running the `skaffold` command.
 
-## Run app remotely using Kubernetes
+## Run app remotely using Kubernetes with GitHub Actions
 
-After the Docker image is created and pushed to Docker Hub, build the AWS infrastructure.
+Update the _.github/workflows/main.yaml_ to suite your GitHub Actions profile. Be sure that your GitHub Actions secrets are created to reflect what's in the _main.yaml_ file. The following secrets should be set as such:
 
-Under _aws/vpc_, run
-
+```console
+EKS_CLUSTER=vhg-cluster
+EKS_REGION=us-east-1
 ```
+
+If you choose to provide different values here, update the corresponding Terraform `.tf` files under _terraform/_.
+
+Under _terraform/_, run
+
+```console
 terraform init
 terraform plan
 terraform apply
 ```
 
-Under _aws/eks_, run
-
-```
-terraform init
-terraform plan
-terraform apply
-```
-
-On the command line, update the Kubernetes config by running
+Run the following to build the app
 
 ```console
-aws eks update-kubeconfig --name vhg-cluster --region us-east-1
+pnpm i
+pnpm exec nx build vhg
 ```
 
-Then, run
+Push your `main` branch up to your corresponding GitHub remote branch and GitHub Actions should build and containerize the app and provision it on AWS.
 
-```console
-kubectl apply -f k8s/vhg-deployment.yaml
-kubectl apply -f k8s/vhg-cluster-ip-service.yaml
-kubectl apply -f k8s/vhg-ingress-service.yaml
-```
-
-Install the Ingress-Nginx Controller by running
-
-```console
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
-```
+On your AWS account, visit your Load Balancer's DNS to see the running site!
 
 ## Tear down the infrastructure
 
@@ -157,99 +149,14 @@ If you ran the Kubernetes Dashboard, use the `kubectl delete` command as well to
 
 ### Teardown from remote setup
 
-Uninstall the Ingress-Nginx Controller by running
+Run the following command
 
 ```console
-kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+kubectl delete -f manifests.yaml
 ```
 
-Delete all the K8s objects by going to _k8s/_ and running
-
-```console
-kubectl delete -f vhg-ingress-service.yaml
-kubectl delete -f vhg-cluster-ip-service.yaml
-kubectl delete -f vhg-deployment.yaml
-```
-
-Destroy all the EKS Terraform setup by going to _aws/eks_ and running
+Destroy all the EKS Terraform setup by going to _terraform/_ and running
 
 ```console
 terraform destroy
 ```
-
-Destroy all the VPC Terraform setup by going to _aws/vpc_ and running
-
-```console
-terraform destroy
-```
-
-## TODO: Outdated. Remove later.
-## Building the Infrastructure on AWS
-
-With and AWS account set up, run the Terraform modules in _/terraform/_. Most of the files in her were inspired by [Create AWS EKS Fargate Using Terraform (EFS, HPA, Ingress, ALB, IRSA, Kubernetes, Helm, Tutorial)](https://antonputra.com/amazon/create-aws-eks-fargate-using-terraform/).
-
-While just inside the _/terraform/_ directory, run
-
-```console
-terraform apply
-```
-
-Update the Kubernetes context by running
-
-```console
-aws eks update-kubeconfig --name vhg --region us-east-1
-```
-
-TODO: (Continue to add more documentation here.)
-
-## Generate code
-
-If you happen to use Nx plugins, you can leverage code generators that might come with it.
-
-Run `nx list` to get a list of available plugins and whether they have generators. Then run `nx list <plugin-name>` to see what generators are available.
-
-Learn more about [Nx generators on the docs](https://nx.dev/plugin-features/use-code-generators).
-
-## Running tasks
-
-To execute tasks with Nx use the following syntax:
-
-```console
-nx <target> <project> <...options>
-```
-
-You can also run multiple targets:
-
-```console
-nx run-many -t <target1> <target2>
-```
-
-..or add `-p` to filter specific projects
-
-```console
-nx run-many -t <target1> <target2> -p <proj1> <proj2>
-```
-
-Targets can be defined in the `package.json` or `projects.json`. Learn more [in the docs](https://nx.dev/core-features/run-tasks).
-
-## Want better Editor Integration?
-
-Have a look at the [Nx Console extensions](https://nx.dev/nx-console). It provides autocomplete support, a UI for exploring and running tasks & generators, and more! Available for VSCode, IntelliJ and comes with a LSP for Vim users.
-
-## Ready to deploy?
-
-Just run `nx build demoapp` to build the application. The build artifacts will be stored in the `dist/` directory, ready to be deployed.
-
-## Set up CI!
-
-Nx comes with local caching already built-in (check your `nx.json`). On CI you might want to go a step further.
-
-- [Set up remote caching](https://nx.dev/core-features/share-your-cache)
-- [Set up task distribution across multiple machines](https://nx.dev/core-features/distribute-task-execution)
-- [Learn more how to setup CI](https://nx.dev/recipes/ci)
-
-## Connect with us!
-
-- [Join the community](https://nx.dev/community)
-- [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
-- [Follow us on Twitter](https://twitter.com/nxdevtools)
