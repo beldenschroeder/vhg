@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@vhg/prisma": ["libs/vhg/src/index.ts"],
-      "@vhg/prisma/server": ["libs/vhg/src/server.ts"]
+      "@vhg/vhg-libs": ["libs/vhg/src/index.ts"],
+      "@vhg/vhg-libs/server": ["libs/vhg/src/server.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

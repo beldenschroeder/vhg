@@ -2,7 +2,7 @@
 //   return new Response('Hello, from API!');
 // }
 
-import prisma from '@vhg/prisma';
+import prisma from '@vhg/vhg-libs';
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {

@@ -1,5 +1,5 @@
 {
-  "name": "prisma",
+  "name": "vhg-libs",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/vhg/src",
   "projectType": "library",

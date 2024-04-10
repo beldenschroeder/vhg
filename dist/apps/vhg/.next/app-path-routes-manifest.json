@@ -1,5 +1,5 @@
 {
-  "/api/hello/route": "/api/hello",
   "/page": "/",
-  "/paintings/page": "/paintings"
+  "/paintings/page": "/paintings",
+  "/api/hello/route": "/api/hello"
 }

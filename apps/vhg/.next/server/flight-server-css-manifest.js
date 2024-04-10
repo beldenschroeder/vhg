@@ -1,4 +1,12 @@
 self.__RSC_CSS_MANIFEST={
-  "cssImports": {},
-  "cssModules": {}
+  "cssImports": {
+    "/Users/beldenschroeder/code/vhg/apps/vhg/app/layout.tsx": [
+      "/Users/beldenschroeder/code/vhg/apps/vhg/app/global.css"
+    ]
+  },
+  "cssModules": {
+    "/Users/beldenschroeder/code/vhg/apps/vhg/app/page": [
+      "/Users/beldenschroeder/code/vhg/apps/vhg/app/global.css"
+    ]
+  }
 }
