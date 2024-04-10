@@ -15,10 +15,10 @@
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "inputs": ["production", "^production", "noMarkdown", "^noMarkdown"]
     },
     "test": {
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js", "noMarkdown", "^noMarkdown"]
     },
     "e2e": {
       "inputs": ["default", "^production"]
@@ -44,6 +44,7 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.js"
     ],
+    "noMarkdown": ["!{projectRoot}/**/*.md"],
     "sharedGlobals": []
   },
   "generators": {
