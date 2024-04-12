@@ -1,5 +1,1 @@
-{
-  "/page": "/",
-  "/paintings/page": "/paintings",
-  "/api/hello/route": "/api/hello"
-}
+{"/_not-found":"/_not-found","/api/hello/route":"/api/hello","/paintings/page":"/paintings","/page":"/"}

@@ -1,1 +1,5 @@
-{"headers":{"x-next-cache-tags":"/paintings/page"}}
+{
+  "headers": {
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/paintings/layout,_N_T_/paintings/page,_N_T_/paintings"
+  }
+}

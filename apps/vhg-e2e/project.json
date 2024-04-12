@@ -3,6 +3,8 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/vhg-e2e/src",
   "projectType": "application",
+  "tags": [],
+  "implicitDependencies": ["vhg"],
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
@@ -18,13 +20,8 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/vhg-e2e/**/*.{js,ts}"]
-      }
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["vhg"]
+  }
 }
