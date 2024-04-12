@@ -3,6 +3,9 @@
   "workspaceLayout": {
     "projectNameAndRootFormat": "as-provided"
   },
+  "release": {
+    "projects": ["vhg"]
+  },
   "targetDefaults": {
     "build": {
       "dependsOn": [
