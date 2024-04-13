@@ -172,3 +172,33 @@ Destroy all the EKS Terraform setup by going to _terraform/_ and running
 ```console
 terraform destroy
 ```
+
+## Database Configuration
+
+The database used in this project uses Vercel's Postress database service. An example of how to set this up can be found at [How to Build a Fullstack App with Next.js, Prisma, and Vercel Postres](https://vercel.com/guides/nextjs-prisma-postgres#step-3-setup-prisma-and-create-the-database-schema). This appication hits an existing database endpoint on Vercel's database servers.
+
+The command
+
+```console
+vercel env pull .env
+```
+
+sync's the project's _.env_ with the environment variables used on that Vercel project account.
+
+The _schema.prisma_ file defines the schema to build the database. To do this, run
+
+```console
+pnpm exec prisma db push
+```
+
+To add data to the database tables created, you can do this via Prisma's Studio interface. Run the command
+
+```console
+pnpm exec prisma studio
+```
+
+If you ever need to update you Prisma schema (_schema.prisma_), you'll also need to ensure your Prisma Client (_libs/vhg/src/lib/prisma.tsx_) accounts for this change. To do that, run
+
+```console
+pnpm exec prisma generate
+```
