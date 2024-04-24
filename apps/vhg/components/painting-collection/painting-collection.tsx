@@ -1,4 +1,13 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
+import path from 'path';
+
+// This file is used to replace `server.ts` when ejecting i.e. `yarn eject`
+// See `../eject.ts` for exact details on how this file is used
+// See `./README.md#eject` for more information
+
+dotenv.config({
+  path: path.resolve(__dirname, '../../../.env'),
+})
 // import styled from 'styled-components';
 
 /* eslint-disable-next-line */
@@ -10,7 +19,7 @@ import 'dotenv/config';
 
 async function getPaintings() {
   // TODO: Change `http` protocol to `https` when deploying to production when that's set up.
-  const res = await fetch('https://vhg-ednz12w9q-beldenschroedergmailcoms-projects.vercel.app/api/hello', {
+  const res = await fetch('https://' + process.env.VERCEL_URL + '/api/hello', {
     headers: {
       'Content-Type': 'application/json'
     }

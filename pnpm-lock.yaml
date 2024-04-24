@@ -14,6 +14,9 @@ dependencies:
   '@swc/helpers':
     specifier: 0.5.8
     version: 0.5.8
+  dotenv:
+    specifier: ^16.4.5
+    version: 16.4.5
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.24.4)(react-dom@18.2.0)(react@18.2.0)
@@ -36,7 +39,7 @@ dependencies:
 devDependencies:
   '@nx-tools/nx-container':
     specifier: ^5.0.3
-    version: 5.0.3(@nx/devkit@16.8.1)(dotenv@16.3.1)(tslib@2.3.0)
+    version: 5.0.3(@nx/devkit@16.8.1)(dotenv@16.4.5)(tslib@2.3.0)
   '@nx/cypress':
     specifier: 18.2.4
     version: 18.2.4(@swc/core@1.3.107)(@types/node@18.19.31)(cypress@13.6.6)(nx@18.2.4)(typescript@5.4.5)
@@ -3290,7 +3293,7 @@ packages:
       tslib: 2.3.0
     dev: true
 
-  /@nx-tools/nx-container@5.0.3(@nx/devkit@16.8.1)(dotenv@16.3.1)(tslib@2.3.0):
+  /@nx-tools/nx-container@5.0.3(@nx/devkit@16.8.1)(dotenv@16.4.5)(tslib@2.3.0):
     resolution: {integrity: sha512-jihsDiLlPNrf0obWMovAZ0ZwlD4lKCtzqP0KTw0j2cltmYyeAA6py05hHpQ+iDmx1z0c4935QYTN9RmJWzduZw==}
     peerDependencies:
       '@nx/devkit': ^16.0.0
@@ -3300,7 +3303,7 @@ packages:
       '@nx-tools/core': 5.0.3(@nx/devkit@16.8.1)(tslib@2.3.0)
       '@nx/devkit': 16.8.1(nx@18.2.4)
       csv-parse: 5.4.0
-      dotenv: 16.3.1
+      dotenv: 16.4.5
       handlebars: 4.7.7
       semver: 7.5.4
       tmp: 0.2.1
@@ -6544,6 +6547,10 @@ packages:
 
   /dotenv@16.3.1:
     resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
+
+  /dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
 
   /duplexer@0.1.2:
