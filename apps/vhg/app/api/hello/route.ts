@@ -16,7 +16,6 @@ export async function GET(req: Request) {
       },
     },
   });
-  console.log(feed);
 
   // return {
   //   props: { feed },
