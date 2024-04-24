@@ -32,7 +32,7 @@ export default async function PaintingCollection() {
       <h1>Welcome to PaintingCollection!</h1>
       <ul>
         {paintings.map((painting: { id: number, title: string }) => (
-          <li key={painting.id}>Posts: {painting.title}</li>
+          <li key={painting.id}>Post: {painting.title}</li>
         ))}
       </ul>
     </div>
