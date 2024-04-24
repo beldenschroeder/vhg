@@ -9,7 +9,11 @@ import 'dotenv/config';
 // `;
 
 async function getPaintings() {
-  const res = await fetch(`https://${process.env.VERCEL_URL}/api/hello`);
+  const res = await fetch(`https://${process.env.VERCEL_URL}/api/hello`, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -20,7 +24,9 @@ async function getPaintings() {
     console.log('res', res);
   }
 
-  return res.json();
+  const data = await res.json();
+
+  return Response.json({ data });
 }
 
 export default async function PaintingCollection() {
