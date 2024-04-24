@@ -6,7 +6,9 @@
     "node": ">=18",
     "pnpm": ">=8"
   },
-  "scripts": {},
+  "scripts": {
+    "postinstall": "pnpm exec prisma generate"
+  },
   "private": true,
   "dependencies": {
     "@nx/next": "18.2.4",
