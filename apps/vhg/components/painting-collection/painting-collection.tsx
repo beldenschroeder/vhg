@@ -6,7 +6,7 @@ import path from 'path';
 // See `./README.md#eject` for more information
 
 dotenv.config({
-  path: path.resolve(__dirname, '../../../.env'),
+  path: path.resolve(__dirname, '../../../../.env'),
 })
 // import styled from 'styled-components';
 
