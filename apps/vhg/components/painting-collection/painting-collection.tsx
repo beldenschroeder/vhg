@@ -19,7 +19,8 @@ async function getPaintings() {
   // TODO: Change `http` protocol to `https` when deploying to production when that's set up.
   const res = await fetch(url.href, {
     headers: {
-      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/json'
+      accept: 'application/json'
     }
   });
   // The return value is *not* serialized
