@@ -1,3 +1,4 @@
+import 'dotenv/config';
 // import styled from 'styled-components';
 
 /* eslint-disable-next-line */
@@ -8,7 +9,7 @@
 // `;
 
 async function getPaintings() {
-  const res = await fetch('http://localhost:4200/api/hello');
+  const res = await fetch(`${process.env.VERCEL_URL}/api/hello`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
