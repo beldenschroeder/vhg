@@ -10,7 +10,7 @@ import 'dotenv/config';
 
 async function getPaintings() {
   // TODO: Change `http` protocol to `https` when deploying to production when that's set up.
-  const res = await fetch('https://' + process.env.VERCEL_URL + '/api/hello', {
+  const res = await fetch('https://vhg-ednz12w9q-beldenschroedergmailcoms-projects.vercel.app/api/hello', {
     headers: {
       'Content-Type': 'application/json'
     }
@@ -38,11 +38,11 @@ export default async function PaintingCollection() {
     // <StyledPaintingCollection>
     <div>
       <h1>Welcome to PaintingCollection!</h1>
-      {/* <ul>
+      <ul>
         {paintings.map((painting: { id: number, title: string }) => (
           <li key={painting.id}>Post: {painting.title}</li>
         ))}
-      </ul> */}
+      </ul>
     </div>
     // </StyledPaintingCollection>
   );
