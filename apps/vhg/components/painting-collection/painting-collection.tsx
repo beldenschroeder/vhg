@@ -13,10 +13,10 @@
 // `;
 
 async function getPaintings() {
-  console.log('process.env.VERCEL_URL', process.env.VERCEL_URL);
+  console.log('process.env.NEXT_PUBLIC_URL', process.env.NEXT_PUBLIC_URL);
 
   // TODO: Change `http` protocol to `https` when deploying to production when that's set up.
-  const res = await fetch('/api/hello', {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/hello`, {
     headers: {
       // 'Content-Type': 'application/json'
       accept: 'application/json'
