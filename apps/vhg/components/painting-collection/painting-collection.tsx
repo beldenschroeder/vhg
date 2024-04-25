@@ -2,7 +2,6 @@
 // See `../eject.ts` for exact details on how this file is used
 // See `./README.md#eject` for more information
 
-
 // import styled from 'styled-components';
 
 /* eslint-disable-next-line */
@@ -14,18 +13,16 @@
 
 async function getPaintings() {
   // TODO: Update production base URL later
-  const baseUrl = process.env.VERCEL_ENV === 'production'
-  ? `https://${process.env.VERCEL_URL}`
-  : process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : `http://${process.env.VERCEL_URL}`;
+  const baseUrl =
+    process.env.VERCEL_ENV === 'production'
+      ? `https://${process.env.VERCEL_URL}`
+      : `http://${process.env.VERCEL_URL}`;
 
   console.log('baseUrl: ', baseUrl);
 
   // TODO: Change `http` protocol to `https` when deploying to production when that's set up.
   const res = await fetch(`${baseUrl}/api/hello`, {
     headers: {
-      // 'Content-Type': 'application/json'
       accept: 'application/json'
     }
   });
@@ -47,7 +44,6 @@ async function getPaintings() {
 }
 
 export default async function PaintingCollection() {
-
   const paintings = await getPaintings();
 
   console.log('paintings', paintings);
@@ -57,7 +53,7 @@ export default async function PaintingCollection() {
     <div>
       <h1>Welcome to PaintingCollection!</h1>
       <ul>
-        {paintings.map((painting: { id: number, title: string }) => (
+        {paintings.map((painting: { id: number; title: string }) => (
           <li key={painting.id}>Post: {painting.title}</li>
         ))}
       </ul>
