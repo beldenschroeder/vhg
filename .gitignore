@@ -74,12 +74,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+.env*
 # Next.js
 # TODO: Uncomment if its not needed in the deploy
 # .next
