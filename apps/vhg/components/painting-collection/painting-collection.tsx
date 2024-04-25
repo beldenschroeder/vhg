@@ -56,11 +56,11 @@ export default async function PaintingCollection() {
     // <StyledPaintingCollection>
     <div>
       <h1>Welcome to PaintingCollection!</h1>
-      {/* <ul>
+      <ul>
         {paintings.map((painting: { id: number, title: string }) => (
           <li key={painting.id}>Post: {painting.title}</li>
         ))}
-      </ul> */}
+      </ul>
     </div>
     // </StyledPaintingCollection>
   );
