@@ -8,7 +8,7 @@
 
 ### Run app locally in development mode
 
-To start the development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:4200/.
+To start the development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:3000/.
 
 ### Run app locally in a Docker container in production mode
 
@@ -19,7 +19,7 @@ After the Docker Desktop's Deamon is running, start the app in a Docker containe
 ```console
 pnpm i
 pnpm exec nx container vhg
-docker run -p 3000:3000 -t beldenschroeder/vhg:1.0
+docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
 > NOTE: If you prefer to make updates to the app, you can give a new version tag to image by updating it in _/apps/vhg/project.json_, building the project again and run the Docker image again, as shown earlier.

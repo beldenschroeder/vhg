@@ -1,15 +1,21 @@
 # Install dependencies only when needed
 FROM docker.io/node:lts-alpine as dependencies
 
-ARG CONTAINER_CONTEXT=dist/apps/vhg
+# ARG CONTAINER_CONTEXT=dist/apps/vhg
+# ARG CONTAINER_CONTEXT=./
 
-RUN echo "Container context for dependencies: $CONTAINER_CONTEXT"
+
+# RUN echo "Container context for dependencies: $CONTAINER_CONTEXT"
 
 RUN apk add --no-cache libc6-compat
 RUN apk add g++ make py3-pip
 WORKDIR /usr/src/app
-COPY $CONTAINER_CONTEXT/package.json ./
+COPY ./dist/apps/vhg/package.json ./
+COPY ./prisma ./prisma
 RUN npm install --omit=dev --legacy-peer-deps
+# Keep the prisma version in sync the @prisma/client dependency's version
+RUN npm install -g prisma@5.3.1
+RUN prisma generate
 
 # Production image, copy all the files and run next
 FROM docker.io/node:lts-alpine as runner
@@ -20,8 +26,12 @@ RUN echo "Container context for runner: $CONTAINER_CONTEXT"
 
 RUN apk add --no-cache dumb-init
 
+ENV VERCEL_URL localhost:3000
+# TODO: Check if this is being used
 ENV NODE_ENV production
+# TODO: Check if this is being used
 ENV PORT 3000
+# TODO: Check if this is being used
 ENV HOST 0.0.0.0
 ENV NEXT_TELEMETRY_DISABLED 1
 

@@ -11,6 +11,13 @@
 //   color: pink;
 // `;
 
+// import dotenv from 'dotenv'
+// import path from 'path'
+
+// dotenv.config({
+//   path: path.resolve(__dirname, '../../../../.env'),
+// })
+
 async function getPaintings() {
   // TODO: Update production base URL later
   const baseUrl =
