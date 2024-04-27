@@ -62,6 +62,8 @@ docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
 
 Open your browser and navigate to http://localhost:3000/.
 
+## TODO: All other build options from here forward aren't working, however, given that I'll be migrating this off K8s and using ECS, all the instructions below will be replaced.
+
 ### Run app locally using Kubernetes
 
 #### Build app and container with Nx
