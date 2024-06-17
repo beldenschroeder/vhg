@@ -1,0 +1,34 @@
+name: 'Build & Deploy to Production'
+on:
+  push:
+    branches:
+      - main
+env:
+  # TODO: Consider making these secrets, as mentioned in GitHub Actions
+  # documentation
+  # (https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository)
+  SERVICE_NAME: vhgapp
+  SERVICE_TAG: v1
+  ERC_REGISTRY_URI: 737094223358.dkr.ecr.us-east-1.amazonaws.com
+  ERC_REPO_URL: 737094223358.dkr.ecr.us-east-1.amazonaws.com/vhgapp
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      # Install Node.js dependencies
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          # TODO: Update to Node.js 20, like is in the package.json
+          node-version: '18.17.1'
+      - name: Dockerize the application
+        run: |
+          echo "Dockerizing the application..."
+          # TODO: Remove commented out line below later as `get-login` is deprecated.
+          # $(aws ecr get-login --no-include-email --region us-east-1)
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ERC_REGISTRY_URI
+          aws ecr create-repository --repository-name $SERVICE_NAME || true
+          docker build -f apps/vhg/Dockerfile.prod -t $SERVICE_NAME:$SERVICE_TAG .
+          docker tag $SERVICE_NAME:$SERVICE_TAG $ERC_REPO_URL:$SERVICE_TAG
+          docker push $ERC_REPO_URL:$SERVICE_TAG

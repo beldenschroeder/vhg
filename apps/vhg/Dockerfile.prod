@@ -1,33 +1,25 @@
 # Install dependencies only when needed
+# `--platform=linux/amd64` needed to resolve this issue: https://stackoverflow.com/questions/74705475/aws-ecs-exec-usr-local-bin-docker-entrypoint-sh-exec-format-error
 FROM --platform=linux/amd64 docker.io/node:lts-alpine as dependencies
-
-# ARG CONTAINER_CONTEXT=dist/apps/vhg
-# ARG CONTAINER_CONTEXT=./
-
-
-# RUN echo "Container context for dependencies: $CONTAINER_CONTEXT"
 
 RUN apk add --no-cache libc6-compat
 RUN apk add g++ make py3-pip
 WORKDIR /usr/src/app
-COPY ./dist/apps/vhg/package.json ./
-COPY ./prisma ./prisma
+COPY ../../dist/apps/vhg/package.json ./
+COPY ../../prisma ./prisma
 RUN npm install --omit=dev --legacy-peer-deps
 # Keep the prisma version in sync the @prisma/client dependency's version
 RUN npm install -g prisma@5.3.1
 RUN prisma generate
 
 # Production image, copy all the files and run next
+# `--platform=linux/amd64` needed to resolve this issue: https://stackoverflow.com/questions/74705475/aws-ecs-exec-usr-local-bin-docker-entrypoint-sh-exec-format-error
 FROM --platform=linux/amd64 docker.io/node:lts-alpine as runner
-
-ARG CONTAINER_CONTEXT=dist/apps/vhg
-
-RUN echo "Container context for runner: $CONTAINER_CONTEXT"
 
 RUN apk add --no-cache dumb-init
 
 # TODO: Check if this is being used
-ENV VERCEL_URL localhost:3000
+ENV VERCEL_URL beldenschroeder.me
 # TODO: Check if this is being used
 ENV NODE_ENV production
 # TODO: Check if this is being used
@@ -43,8 +35,8 @@ COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 
 # Copy built application files
 COPY --from=dependencies /usr/src/app/package.json ./package.json
-COPY $CONTAINER_CONTEXT/public ./public
-COPY $CONTAINER_CONTEXT/.next ./.next
+COPY ../../dist/apps/vhg/public ./public
+COPY ../../dist/apps/vhg/.next ./.next
 
 # Run the application under "node" user by default
 RUN chown -R node:node .

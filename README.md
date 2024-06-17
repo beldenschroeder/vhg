@@ -62,7 +62,7 @@ docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
 
 Open your browser and navigate to http://localhost:3000/.
 
-## TODO: All other build options from here forward aren't working, however, given that I'll be migrating this off K8s and using ECS, all the instructions below will be replaced.
+## TODO: All other build options from here forward aren't working, however, given that I'll be migrating this off K8s and using ECS, all the instructions below will be replaced. For instructions on ECS build and deploy, visit the _terraform/README.md_ file.
 
 ### Run app locally using Kubernetes
 
