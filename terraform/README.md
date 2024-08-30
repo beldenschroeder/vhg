@@ -26,7 +26,7 @@ At the root project directory, run
 
 ```console
 pnpm i
-pnpm pnpm exec nx build vhg
+pnpm exec nx build vhg
 ```
 
 ## Deploy the Application
