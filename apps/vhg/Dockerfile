@@ -10,6 +10,7 @@ FROM --platform=linux/amd64 docker.io/node:lts-alpine as dependencies
 RUN apk add --no-cache libc6-compat
 RUN apk add g++ make py3-pip
 WORKDIR /usr/src/app
+# TODO: Check if this should be using the root package.json instead
 COPY ./dist/apps/vhg/package.json ./
 COPY ./prisma ./prisma
 RUN npm install --omit=dev --legacy-peer-deps
