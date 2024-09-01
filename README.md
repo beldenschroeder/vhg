@@ -62,6 +62,51 @@ docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
 
 Open your browser and navigate to http://localhost:3000/.
 
+### Run app remotely in production with GitHub Actions
+
+Before you can deploy the app using GitHub Actions, you'll need to build part of the AWS cloud infrastructure on which its hosted. The entire infrustructuion is segmented into three layers and each is built from its own repo.
+
+The first two layers need to be built first. After this, you'll want to build and merge this _vhg_ project into the _main_ branch. Doing so will kick off a GitHub Action that publishes the app's container into [AWS ECR](https://aws.amazon.com/ecr/). Execute these builds from each repo in the fllowing order by following their README instructions:
+
+#### 1. Base Infrastructure
+
+Follow the deployment instructions in the [README.md](https://github.com/beldenschroeder/vhg-infra/blob/main/README.md) for the _vhg-infra_ repo.
+
+#### 2. Platform Infrastructure
+
+Follow the deployment instructions in the [README.md](https://github.com/beldenschroeder/vhg-infra-platform/blob/main/README.md) for the _vhg-infra-platform_ repo.
+
+#### 3. App Container Deployment
+
+##### 3.1 Build the App
+
+At the root of this project directory, run
+
+```console
+pnpm i
+pnpm exec nx build vhg
+```
+
+TODO: Update the _Dockerfile_ and _Dockerfile.prod_ files to have these files doe the builds instead of having to build locally first. Make sure to also add _/dist/_ from the _.gitignore_ file as well.
+
+##### 3.2 Deploy the App to Production
+
+First check on the AWS account that will host this app if a container for the app already exists. You can determine this by going to the AWS Console and searching for "ECR". Make sure there isn't a container with the same tag as the one you're about to push up. If there is, simply remove it from the AWS Console.
+
+After this check, temporarily remove the `postinstall` script from this project's root _package.json_ to prevent the _Dockerfile.prod_ from attempting to run it when this _package.json_file gets cloned into the container's environment and executed remotely. It's only meant to be run locally.
+
+TODO: Remove the `postinstall` script later when replacing PostgreSQL with MongoDB.
+
+Create a PR from your branch to the _main_ branch and merge it. This will kick off a GitHub Action to publish the app container to ECR.
+
+#### 4. App Infrastructure
+
+Follow the deployment instructions in the [README.md](https://github.com/beldenschroeder/vhg-infra-app/blob/main/README.md) for the _vhg-infra-app_ repo.
+
+#### 5. Visit the Site
+
+The app should now be hosted on http://vhgapp.beldenschroeder.me.
+
 ## TODO: All other build options from here forward aren't working, however, given that I'll be migrating this off K8s and using ECS, all the instructions below will be replaced. For instructions on ECS build and deploy, visit the _terraform/README.md_ file.
 
 ### Run app locally using Kubernetes
