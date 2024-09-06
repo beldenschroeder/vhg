@@ -87,7 +87,7 @@ pnpm i
 pnpm exec nx build vhg
 ```
 
-TODO: Update the _Dockerfile_ and _Dockerfile.prod_ files to have these files doe the builds instead of having to build locally first. Make sure to also add _/dist/_ from the _.gitignore_ file as well.
+TODO: Update the _Dockerfile_ and _Dockerfile.prod_ files to have these files do the builds instead of having to build locally first. Make sure to also add _/dist/_ from the _.gitignore_ file as well.
 
 ##### 3.2 Deploy the App to Production
 
