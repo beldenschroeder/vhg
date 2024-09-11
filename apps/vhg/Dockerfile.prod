@@ -19,13 +19,13 @@ FROM --platform=linux/amd64 docker.io/node:lts-alpine as runner
 RUN apk add --no-cache dumb-init
 
 # TODO: Check if this is being used
-ENV VERCEL_URL beldenschroeder.me
+# ENV VERCEL_URL beldenschroeder.me
 # TODO: Check if this is being used
-ENV NODE_ENV production
+# ENV NODE_ENV production
 # TODO: Check if this is being used
-ENV PORT 3000
+# ENV PORT 3000
 # TODO: Check if this is being used
-ENV HOST 0.0.0.0
+# ENV HOST 0.0.0.0
 ENV NEXT_TELEMETRY_DISABLED 1
 
 WORKDIR /usr/src/app
