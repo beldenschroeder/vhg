@@ -21,7 +21,7 @@ RUN apk add --no-cache dumb-init
 # TODO: Check if this is being used
 # ENV VERCEL_URL beldenschroeder.me
 # TODO: Check if this is being used
-# ENV NODE_ENV production
+ENV NODE_ENV production
 # TODO: Check if this is being used
 # ENV PORT 3000
 # TODO: Check if this is being used
