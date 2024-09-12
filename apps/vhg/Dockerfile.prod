@@ -19,7 +19,9 @@ FROM --platform=linux/amd64 docker.io/node:lts-alpine as runner
 RUN apk add --no-cache dumb-init
 
 # TODO: Check if this is being used
-# ENV VERCEL_URL beldenschroeder.me
+ENV VERCEL_ENV production
+# TODO: Check if this is being used
+ENV VERCEL_URL vhgapp.beldenschroeder.me
 # TODO: Check if this is being used
 # ENV NODE_ENV production
 # TODO: Check if this is being used
