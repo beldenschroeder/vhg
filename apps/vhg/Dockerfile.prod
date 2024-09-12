@@ -18,16 +18,8 @@ FROM --platform=linux/amd64 docker.io/node:lts-alpine as runner
 
 RUN apk add --no-cache dumb-init
 
-# TODO: Check if this is being used
 ENV VERCEL_ENV production
-# TODO: Check if this is being used
 ENV VERCEL_URL vhgapp.beldenschroeder.me
-# TODO: Check if this is being used
-# ENV NODE_ENV production
-# TODO: Check if this is being used
-# ENV PORT 3000
-# TODO: Check if this is being used
-# ENV HOST 0.0.0.0
 ENV NEXT_TELEMETRY_DISABLED 1
 
 WORKDIR /usr/src/app
@@ -36,8 +28,6 @@ WORKDIR /usr/src/app
 COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 
 # Copy built application files
-# TODO: Remove commented out line, if not correct
-# COPY --from=dependencies /usr/src/app/package.json ./package.json
 COPY ../../dist/apps/vhg/package.json ./package.json
 COPY ../../dist/apps/vhg/public ./public
 COPY ../../dist/apps/vhg/.next ./.next
