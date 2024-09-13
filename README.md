@@ -46,9 +46,13 @@ This project is configured as a [Vercel project deployment](https://vercel.com/d
 
 To start the development server run `pnpm exec nx serve vhg`. Open your browser and navigate to http://localhost:3000/.
 
-### Run app locally in a Docker container in production mode
+### Run app locally in a container in production mode
 
-Be sure to install and run [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+> NOTE: If you prefer to make updates to the app, you can give a new version tag to image by updating it in _/apps/vhg/project.json_, building the project again and run the Docker image again, as shown earlier.
+
+#### Running with Docker Desktop
+
+If you prefer to run Docker Desktop, be sure to install and run [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
 After the Docker Desktop's Deamon is running, start the app in a Docker container locally in production mode, run
 
@@ -58,7 +62,19 @@ pnpm exec nx container vhg
 docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
-> NOTE: If you prefer to make updates to the app, you can give a new version tag to image by updating it in _/apps/vhg/project.json_, building the project again and run the Docker image again, as shown earlier.
+Open your browser and navigate to http://localhost:3000/.
+
+#### Running with Podman Desktop
+
+If you prefer to run Podman Desktop, be sure to install and run [Podman Desktop](https://podman.io/).
+
+After the Podman Desktop's Deamon is running, start the app in a Docker container locally in production mode, run
+
+```console
+pnpm i
+pnpm exec nx container vhg
+podman run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
+```
 
 Open your browser and navigate to http://localhost:3000/.
 
