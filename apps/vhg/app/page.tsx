@@ -41,7 +41,7 @@ export default async function Index() {
           <div id="welcome">
             <h1>
               <span>Hi there, </span>
-              Welcome to the Von Herff Gallery website on Container v1.0! 👋
+              Welcome to the Von Herff Gallery website on Container v1.0! Yay! 👋
             </h1>
           </div>
 
