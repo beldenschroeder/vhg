@@ -6,6 +6,8 @@
 
 ## Environment Configuration
 
+Clone the _.env.example_ file and create an _.env_ file to update as needed. **Do not check your _.env_ file into source control!. The _.gitignore_ file, however, already ensures no files beginning with ".env" can get checked in other than the _.env.example_ file.
+
 The database used in this project uses Vercel's Postress database service. An example of how to set this up can be found at [How to Build a Fullstack App with Next.js, Prisma, and Vercel Postres](https://vercel.com/guides/nextjs-prisma-postgres#step-3-setup-prisma-and-create-the-database-schema). This appication hits an existing database endpoint on Vercel's database servers.
 
 The command
@@ -50,34 +52,34 @@ To start the development server run `pnpm exec nx serve vhg`. Open your browser 
 
 > NOTE: If you prefer to make updates to the app, you can give a new version tag to image by updating it in _/apps/vhg/project.json_, building the project again and run the Docker image again, as shown earlier.
 
-#### Running with Docker Desktop
-
-If you prefer to run Docker Desktop, be sure to install and run [Docker Desktop](https://www.docker.com/products/docker-desktop/).
-
-After the Docker Desktop's Deamon is running, start the app in a Docker container locally in production mode, run
-
-```console
-pnpm i
-pnpm exec prisma generate
-pnpm exec nx container vhg
-TODO: See if `-env-file` argument is even needed, as the env variables also defined in the Dockerfile. Or maybe it should be kept for different environment overrides.
-docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
-```
-
-Open your browser and navigate to http://localhost:3000/.
-
 #### Running with Podman Desktop
 
 If you prefer to run Podman Desktop, be sure to install and run [Podman Desktop](https://podman.io/).
 
-After the Podman Desktop's Deamon is running, start the app in a Docker container locally in production mode, run
+After the Podman Desktop's engine is running, start the app in a Docker container locally in production mode, run
 
 ```console
 pnpm i
 pnpm exec prisma generate
 pnpm exec nx container vhg
-TODO: See if `--env-file` argument is even needed, as the env variables also defined in the Dockerfile. Or maybe it should be kept for different environment overrides.
 podman run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
+```
+
+Open your browser and navigate to http://localhost:3000/.
+
+#### Running with Docker Desktop
+
+If you prefer to run Docker Desktop, be sure to install and run [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+
+Update _apps/vhg/project.json_'s `targets.container.options.engine` to have the value, `docker`.
+
+After the Docker Desktop's engine is running, start the app in a Docker container locally in production mode, run
+
+```console
+pnpm i
+pnpm exec prisma generate
+pnpm exec nx container vhg
+docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
 Open your browser and navigate to http://localhost:3000/.

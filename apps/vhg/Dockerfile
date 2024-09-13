@@ -24,14 +24,6 @@ RUN echo "Container context for runner: $CONTAINER_CONTEXT"
 
 RUN apk add --no-cache dumb-init
 
-# TODO: Check if this is being used
-ENV NODE_ENV production
-# TODO: Check if this is being used
-ENV VERCEL_URL localhost:3000
-# TODO: Check if this is being used
-ENV PORT 3000
-# TODO: Check if this is being used
-ENV HOST 0.0.0.0
 ENV NEXT_TELEMETRY_DISABLED 1
 
 WORKDIR /usr/src/app
@@ -40,8 +32,6 @@ WORKDIR /usr/src/app
 COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 
 # Copy built application files
-# TODO: See if this is the right package.json to copy over
-# COPY --from=dependencies /usr/src/app/package.json ./package.json
 COPY $CONTAINER_CONTEXT/package.json ./package.json
 COPY $CONTAINER_CONTEXT/public ./public
 COPY $CONTAINER_CONTEXT/.next ./.next

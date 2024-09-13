@@ -75,6 +75,7 @@ testem.log
 .DS_Store
 Thumbs.db
 .env*
+!.env.example
 # Next.js
 # TODO: Uncomment if its not needed in the deploy
 # .next
