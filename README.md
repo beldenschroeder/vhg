@@ -58,7 +58,9 @@ After the Docker Desktop's Deamon is running, start the app in a Docker containe
 
 ```console
 pnpm i
+pnpm exec prisma generate
 pnpm exec nx container vhg
+TODO: See if `-env-file` argument is even needed, as the env variables also defined in the Dockerfile. Or maybe it should be kept for different environment overrides.
 docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
@@ -72,7 +74,9 @@ After the Podman Desktop's Deamon is running, start the app in a Docker containe
 
 ```console
 pnpm i
+pnpm exec prisma generate
 pnpm exec nx container vhg
+TODO: See if `--env-file` argument is even needed, as the env variables also defined in the Dockerfile. Or maybe it should be kept for different environment overrides.
 podman run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
@@ -100,6 +104,7 @@ At the root of this project directory, run
 
 ```console
 pnpm i
+pnpm exec prisma generate
 pnpm exec nx build vhg
 ```
 
