@@ -24,8 +24,6 @@ async function getPaintings() {
       : (process.env.VERCEL_ENV === 'preview') ? `https://${process.env.VERCEL_URL}`
       : `http://${process.env.VERCEL_URL}`;
 
-  console.log('baseUrl: ', baseUrl);
-
   const res = await fetch(`${baseUrl}/api/hello`, {
     headers: {
       accept: 'application/json'
