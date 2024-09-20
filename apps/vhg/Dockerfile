@@ -27,9 +27,10 @@ RUN npm install --omit=dev
   # fi
 # RUN pnpm fetch --prod
 # Keep the prisma version in sync the @prisma/client dependency's version
-RUN npm install -g prisma@5.3.1
+# RUN npm install -g prisma@5.3.1
 # RUN pnpm add -g prisma@5.3.1
-RUN prisma generate
+RUN npx prisma generate
+# CMD ["npx", "prisma", "generate"]
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -42,13 +43,14 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # RUN pnpm add -g nx@18.2.4
-RUN npm install -g nx@18.2.4
+# RUN npm install -g nx@18.2.4
 
 # RUN \
 #   if [ -f pnpm-lock.yaml ]; then pnpm exec nx build vhg; \
 #   else echo "Lockfile not found." && exit 1; \
 #   fi
-RUN nx build vhg --verbose
+RUN npx nx build vhg --verbose
+# CMD ["npx", "nx", "build", "vhg", "--verbose"]
 
 # Production image, copy all the files and run next
 FROM base as runner
