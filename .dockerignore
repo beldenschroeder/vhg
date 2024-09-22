@@ -54,4 +54,4 @@ testem.log
 /typings
 
 # TODO: Add back later if can get Docker to suport pnpm
-pnpm-lock.yaml
+# pnpm-lock.yaml

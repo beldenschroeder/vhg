@@ -6,6 +6,7 @@ FROM --platform=linux/amd64 docker.io/node:20-slim as base
 # ENV PNPM_HOME="/pnpm"
 # ENV PATH="$PNPM_HOME:$PATH"
 # RUN corepack enable
+RUN corepack enable pnpm && corepack install -g pnpm@latest-9
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -16,16 +17,20 @@ WORKDIR /app
 # TODO: Check if this should be using the root package.json instead
 # COPY ./dist/apps/vhg/package.json ./
 # COPY ./package.json pnpm-lock.yaml* ./
-# COPY pnpm-lock.yaml ./
-COPY ./package.json ./
+# COPY ./pnpm-lock.yaml ./
+COPY .npmrc package.json pnpm-lock.yaml ./
+# COPY ./package.json ./
 COPY ./prisma ./prisma
 # RUN npm install --omit=dev --legacy-peer-deps
-RUN npm install --omit=dev
+# RUN npm install --omit=dev
+# RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 # RUN \
   # if [ -f pnpm-lock.yaml ]; then pnpm i --prod --frozen-lockfile; \
   # else echo "Lockfile not found." && exit 1; \
   # fi
 # RUN pnpm fetch --prod
+RUN apt-get update -y && apt-get install -y openssl
+RUN pnpm install --frozen-lockfile --prod
 # Keep the prisma version in sync the @prisma/client dependency's version
 # RUN npm install -g prisma@5.3.1
 # RUN pnpm add -g prisma@5.3.1
