@@ -1,6 +1,6 @@
 'use client';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 // import { PrismaClient } from '@prisma/client';
 // import * as prisma from '@vhg/prisma';
 // import { GetStaticProps, InferGetStaticPropsType } from 'next';
@@ -22,10 +22,10 @@ import styled from 'styled-components';
 //   };
 // };
 
-const StyledPage = styled.div`
-  .page {
-  }
-`;
+// const StyledPage = styled.div`
+//   .page {
+//   }
+// `;
 
 // export default function Index({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
 export default async function Index() {
@@ -35,7 +35,7 @@ export default async function Index() {
    * Note: The corresponding styles are in the ./index.styled-components file.
    */
   return (
-    <StyledPage>
+    // <StyledPage>
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
@@ -439,6 +439,6 @@ export default async function Index() {
           </p>
         </div>
       </div>
-    </StyledPage>
+    // </StyledPage>
   );
 }

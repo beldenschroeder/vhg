@@ -56,8 +56,8 @@ ENV NEXT_TELEMETRY_DISABLED 1
 #   else echo "Lockfile not found." && exit 1; \
 #   fi
 # TODO: Remove the --verbose flag
-RUN npx nx build vhg --verbose
-# CMD ["npx", "nx", "build", "vhg", "--verbose"]
+# RUN npx nx build vhg
+CMD ["npx", "nx", "build", "vhg"]
 
 # Production image, copy all the files and run next
 FROM base as runner

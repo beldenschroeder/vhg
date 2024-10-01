@@ -60,7 +60,7 @@
       "dependsOn": ["build"],
       "defaultConfiguration": "local",
       "options": {
-        "engine": "podman",
+        "engine": "docker",
         "file": "apps/vhg/Dockerfile"
       },
       "configurations": {
