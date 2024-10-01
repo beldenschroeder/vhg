@@ -29,6 +29,7 @@ COPY ./prisma ./prisma
   # else echo "Lockfile not found." && exit 1; \
   # fi
 # RUN pnpm fetch --prod
+
 RUN apt-get update -y && apt-get install -y openssl
 RUN pnpm install --frozen-lockfile --prod
 # Keep the prisma version in sync the @prisma/client dependency's version
@@ -54,6 +55,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 #   if [ -f pnpm-lock.yaml ]; then pnpm exec nx build vhg; \
 #   else echo "Lockfile not found." && exit 1; \
 #   fi
+# TODO: Remove the --verbose flag
 RUN npx nx build vhg --verbose
 # CMD ["npx", "nx", "build", "vhg", "--verbose"]
 
@@ -66,7 +68,10 @@ FROM base as runner
 
 # RUN apk add --no-cache dumb-init
 
+# TODO: See if I need this
 ENV NODE_ENV=production
+ENV VERCEL_ENV development
+ENV VERCEL_URL localhost:3000
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # WORKDIR /usr/src/app
@@ -96,4 +101,4 @@ EXPOSE 3000
 #CMD ["dumb-init", "node", "server/main.js"]
 
 # If you are using the NextJS built-int server:
-CMD ["dumb-init", "npm", "start"]
+CMD ["dumb-init", "npm", "start", "--verbose"]

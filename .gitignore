@@ -6,7 +6,7 @@ tmp
 /out-tsc
 
 # dependencies
-node_modules
+node_modules/
 
 # IDEs and editors
 /.idea
@@ -80,8 +80,8 @@ Thumbs.db
 # Next.js
 # TODO: Uncomment if its not needed in the deploy
 # .next
-**/.next/cache
-.vercel
+**/.next/cache/
+.vercel/
 
 # Nx
-.nx
+.nx/

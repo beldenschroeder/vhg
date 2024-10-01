@@ -9,7 +9,7 @@ Dockerfile*
 docker
 
 # dependencies
-node_modules
+node_modules/
 
 # IDEs and editors
 /.idea
@@ -38,13 +38,14 @@ Thumbs.db
 .env*
 
 # Next.js
-.next
-.vercel
+.next/
+.vercel/
 
 # Nx
-.nx
+.nx/
 
 # Misc
+# TODO: Consider removing, as the project doesn't use Sass
 /.sass-cache
 /connect.lock
 /coverage

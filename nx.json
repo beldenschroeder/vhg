@@ -90,5 +90,10 @@
     }
   },
   "nxCloudAccessToken": "ZTNlY2M4MTQtNjIzMy00ZDNlLWFkZjUtYmIzZDkyNGUwYjQwfHJlYWQtd3JpdGU=",
-  "useInferencePlugins": false
+  "useInferencePlugins": false,
+  "plugins": [
+    {
+      "plugin": "@nx/next/plugin"
+    }
+  ]
 }
