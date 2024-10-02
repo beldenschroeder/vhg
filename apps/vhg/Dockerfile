@@ -30,12 +30,13 @@ COPY ./prisma ./prisma
   # fi
 # RUN pnpm fetch --prod
 
-RUN apt-get update -y && apt-get install -y openssl
+# RUN apt-get update -y && apt-get install -y openssl
 RUN pnpm install --frozen-lockfile --prod
 # Keep the prisma version in sync the @prisma/client dependency's version
 # RUN npm install -g prisma@5.3.1
 # RUN pnpm add -g prisma@5.3.1
-RUN npx prisma generate
+# RUN npx prisma generate
+# RUN pnpm exec prisma generate
 # CMD ["npx", "prisma", "generate"]
 
 # Rebuild the source code only when needed
@@ -45,8 +46,11 @@ WORKDIR /app
 # COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN apt-get update -y && apt-get install -y openssl
+RUN pnpm exec prisma generate
 
 ENV NEXT_TELEMETRY_DISABLED 1
+ENV POSTGRES_PRISMA_URL="postgres://default:4PIVAioZE2sL@ep-misty-mouse-77177859-pooler.us-east-1.postgres.vercel-storage.com/verceldb?pgbouncer=true&connect_timeout=15"
 
 # RUN pnpm add -g nx@18.2.4
 # RUN npm install -g nx@18.2.4
@@ -56,8 +60,10 @@ ENV NEXT_TELEMETRY_DISABLED 1
 #   else echo "Lockfile not found." && exit 1; \
 #   fi
 # TODO: Remove the --verbose flag
-# RUN npx nx build vhg
-CMD ["npx", "nx", "build", "vhg"]
+RUN pnpm exec nx build vhg
+# RUN nx build vhg
+# CMD ["pnpm", "exec", "nx", "build", "vhg"]
+# CMD ["nx", "build", "vhg"]
 
 # Production image, copy all the files and run next
 FROM base as runner
@@ -101,4 +107,5 @@ EXPOSE 3000
 #CMD ["dumb-init", "node", "server/main.js"]
 
 # If you are using the NextJS built-int server:
-CMD ["dumb-init", "npm", "start", "--verbose"]
+# CMD ["dumb-init", "npm", "start", "--verbose"]
+CMD ["npm", "start"]

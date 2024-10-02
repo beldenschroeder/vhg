@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 // import styled from 'styled-components';
 // import { PrismaClient } from '@prisma/client';
@@ -28,7 +28,7 @@
 // `;
 
 // export default function Index({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
-export default async function Index() {
+export default function Index() {
   /*
    * Replace the elements below with your own.
    *
@@ -83,7 +83,7 @@ export default async function Index() {
               <a
                 href="https://nx.dev/getting-started/intro?utm_source=nx-project"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="list-item-link"
               >
                 <svg

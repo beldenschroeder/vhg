@@ -1,15 +1,16 @@
+'use client';
 // This file is used to replace `server.ts` when ejecting i.e. `yarn eject`
 // See `../eject.ts` for exact details on how this file is used
 // See `./README.md#eject` for more information
 
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 // export interface PaintingCollectionProps {}
 
-// const StyledPaintingCollection = styled.div`
-//   color: pink;
-// `;
+const StyledPaintingCollection = styled.div`
+  color: pink;
+`;
 
 // import dotenv from 'dotenv'
 // import path from 'path'
@@ -52,7 +53,7 @@ export default async function PaintingCollection() {
   console.log('paintings', paintings);
 
   return (
-    // <StyledPaintingCollection>
+    <StyledPaintingCollection>
     <div>
       <h1>Welcome to PaintingCollection!</h1>
       <ul>
@@ -61,6 +62,6 @@ export default async function PaintingCollection() {
         ))}
       </ul>
     </div>
-    // </StyledPaintingCollection>
+    </StyledPaintingCollection>
   );
 }
