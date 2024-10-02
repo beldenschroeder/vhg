@@ -6,6 +6,7 @@
     "node": ">=20",
     "pnpm": ">=9"
   },
+  "packageManager": "pnpm@9.3.0",
   "private": true,
   "dependencies": {
     "@nx/next": "18.2.4",

@@ -6,7 +6,8 @@ FROM --platform=linux/amd64 docker.io/node:20-slim as base
 # ENV PNPM_HOME="/pnpm"
 # ENV PATH="$PNPM_HOME:$PATH"
 # RUN corepack enable
-RUN corepack enable pnpm && corepack install -g pnpm@latest-9
+# RUN corepack enable pnpm && corepack install -g pnpm@latest-9
+RUN corepack enable pnpm
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -49,7 +50,7 @@ COPY . .
 RUN apt-get update -y && apt-get install -y openssl
 RUN pnpm exec prisma generate
 
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV POSTGRES_PRISMA_URL="postgres://default:4PIVAioZE2sL@ep-misty-mouse-77177859-pooler.us-east-1.postgres.vercel-storage.com/verceldb?pgbouncer=true&connect_timeout=15"
 
 # RUN pnpm add -g nx@18.2.4
@@ -76,9 +77,9 @@ FROM base as runner
 
 # TODO: See if I need this
 ENV NODE_ENV=production
-ENV VERCEL_ENV development
-ENV VERCEL_URL localhost:3000
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV VERCEL_ENV=development
+ENV VERCEL_URL=localhost:3000
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # WORKDIR /usr/src/app
 WORKDIR /app
