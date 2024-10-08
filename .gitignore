@@ -1,12 +1,12 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
+# Compiled output
 # dist TODO: Uncomment if its not needed in the deploy
 tmp
 /out-tsc
 
 # dependencies
-node_modules
+node_modules/
 
 # IDEs and editors
 /.idea
@@ -24,6 +24,7 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# TODO: Probably can remove terraform files, as they don't exist anymore.
 # Terraform
 
 # Local .terraform directories
@@ -67,7 +68,6 @@ terraform.rc
 /coverage
 /libpeerconnection.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
@@ -75,11 +75,13 @@ testem.log
 .DS_Store
 Thumbs.db
 .env*
+!.env.example
+
 # Next.js
 # TODO: Uncomment if its not needed in the deploy
 # .next
-**/.next/cache
-.vercel
+**/.next/cache/
+.vercel/
 
 # Nx
-.nx
+.nx/

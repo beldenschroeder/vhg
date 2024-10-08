@@ -1,6 +1,6 @@
-'use client';
+// 'use client';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 // import { PrismaClient } from '@prisma/client';
 // import * as prisma from '@vhg/prisma';
 // import { GetStaticProps, InferGetStaticPropsType } from 'next';
@@ -22,26 +22,26 @@ import styled from 'styled-components';
 //   };
 // };
 
-const StyledPage = styled.div`
-  .page {
-  }
-`;
+// const StyledPage = styled.div`
+//   .page {
+//   }
+// `;
 
 // export default function Index({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
-export default async function Index() {
+export default function Index() {
   /*
    * Replace the elements below with your own.
    *
    * Note: The corresponding styles are in the ./index.styled-components file.
    */
   return (
-    <StyledPage>
+    // <StyledPage>
       <div className="wrapper">
         <div className="container">
           <div id="welcome">
             <h1>
               <span>Hi there, </span>
-              Welcome to the Von Herff Gallery website on Container v1.0! 👋
+              Welcome to the Von Herff Gallery website on Container v1.0! Yay! 👋
             </h1>
           </div>
 
@@ -83,7 +83,7 @@ export default async function Index() {
               <a
                 href="https://nx.dev/getting-started/intro?utm_source=nx-project"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="list-item-link"
               >
                 <svg
@@ -439,6 +439,6 @@ export default async function Index() {
           </p>
         </div>
       </div>
-    </StyledPage>
+    // </StyledPage>
   );
 }

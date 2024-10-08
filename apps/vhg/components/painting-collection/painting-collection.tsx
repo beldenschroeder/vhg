@@ -1,15 +1,16 @@
+'use client';
 // This file is used to replace `server.ts` when ejecting i.e. `yarn eject`
 // See `../eject.ts` for exact details on how this file is used
 // See `./README.md#eject` for more information
 
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 // export interface PaintingCollectionProps {}
 
-// const StyledPaintingCollection = styled.div`
-//   color: pink;
-// `;
+const StyledPaintingCollection = styled.div`
+  color: pink;
+`;
 
 // import dotenv from 'dotenv'
 // import path from 'path'
@@ -23,8 +24,6 @@ async function getPaintings() {
     (process.env.VERCEL_ENV === 'production') ? `https://${process.env.VERCEL_URL}`
       : (process.env.VERCEL_ENV === 'preview') ? `https://${process.env.VERCEL_URL}`
       : `http://${process.env.VERCEL_URL}`;
-
-  console.log('baseUrl: ', baseUrl);
 
   const res = await fetch(`${baseUrl}/api/hello`, {
     headers: {
@@ -54,7 +53,7 @@ export default async function PaintingCollection() {
   console.log('paintings', paintings);
 
   return (
-    // <StyledPaintingCollection>
+    <StyledPaintingCollection>
     <div>
       <h1>Welcome to PaintingCollection!</h1>
       <ul>
@@ -63,6 +62,6 @@ export default async function PaintingCollection() {
         ))}
       </ul>
     </div>
-    // </StyledPaintingCollection>
+    </StyledPaintingCollection>
   );
 }
