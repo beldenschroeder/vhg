@@ -22,9 +22,12 @@ RUN pnpm exec nx build vhg
 
 # Production image, copy all the files and run next.
 FROM base as runner
-ENV NODE_ENV=development
-ENV VERCEL_ENV=development
-ENV VERCEL_URL=localhost:3000
+ARG NODE_ENV=development
+ENV NODE_ENV=$NODE_ENV
+ARG VERCEL_ENV=development
+ENV VERCEL_ENV=$VERCEL_ENV
+ARG VERCEL_URL=localhost:3000
+ENV VERCEL_URL=$VERCEL_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
