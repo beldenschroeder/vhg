@@ -13,12 +13,12 @@ RUN pnpm install --frozen-lockfile --prod
 FROM base AS builder
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV POSTGRES_PRISMA_URL="postgres://default:4PIVAioZE2sL@ep-misty-mouse-77177859-pooler.us-east-1.postgres.vercel-storage.com/verceldb?pgbouncer=true&connect_timeout=15"
-RUN pnpm exec nx build vhg
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN apt-get update -y && apt-get install -y openssl
 RUN pnpm exec prisma generate
+RUN pnpm exec nx build vhg
 
 # Production image, copy all the files and run next.
 FROM base as runner
