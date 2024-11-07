@@ -1,5 +1,7 @@
 # `--platform=linux/amd64` needed to resolve this issue: https://stackoverflow.com/questions/74705475/aws-ecs-exec-usr-local-bin-docker-entrypoint-sh-exec-format-error
-FROM --platform=linux/amd64 docker.io/node:20-slim as base
+FROM docker.io/node:20-slim as base
+# TODO: Confirm I don't need the below ling in AWS.
+# FROM --platform=linux/amd64 docker.io/node:20-slim as base
 RUN corepack enable pnpm
 
 # Install dependencies only when needed.
@@ -22,7 +24,7 @@ RUN pnpm exec nx build vhg
 
 # Production image, copy all the files and run next.
 FROM base as runner
-ARG NODE_ENV=development
+ARG NODE_ENV=production
 ENV NODE_ENV=$NODE_ENV
 ARG VERCEL_ENV=development
 ENV VERCEL_ENV=$VERCEL_ENV
