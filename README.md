@@ -110,8 +110,6 @@ pnpm exec prisma generate
 pnpm exec nx build vhg
 ```
 
-TODO: Update the _Dockerfile_ and _Dockerfile.prod_ files to have these files do the builds instead of having to build locally first. Make sure to also add _/dist/_ from the _.gitignore_ file as well.
-
 ##### 3.2 Deploy the App to Production
 
 First check on the AWS account that will host this app if a container for the app already exists. You can determine this by going to the AWS Console and searching for "ECR". Make sure there isn't a container with the same tag as the one you're about to push up. If there is, simply remove it from the AWS Console.
