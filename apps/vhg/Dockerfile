@@ -1,7 +1,4 @@
-# `--platform=linux/amd64` needed to resolve this issue: https://stackoverflow.com/questions/74705475/aws-ecs-exec-usr-local-bin-docker-entrypoint-sh-exec-format-error
 FROM docker.io/node:20-slim as base
-# TODO: Confirm I don't need the below ling in AWS.
-# FROM --platform=linux/amd64 docker.io/node:20-slim as base
 RUN corepack enable pnpm
 
 # Install dependencies only when needed.
