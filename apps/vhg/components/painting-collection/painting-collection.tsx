@@ -21,8 +21,10 @@ const StyledPaintingCollection = styled.div`
 
 async function getPaintings() {
   const baseUrl =
-    (process.env.VERCEL_ENV === 'production') ? `https://${process.env.VERCEL_URL}`
-      : (process.env.VERCEL_ENV === 'preview') ? `https://${process.env.VERCEL_URL}`
+    process.env.VERCEL_ENV === 'production'
+      ? `https://${process.env.VERCEL_URL}`
+      : process.env.VERCEL_ENV === 'preview'
+      ? `https://${process.env.VERCEL_URL}`
       : `http://${process.env.VERCEL_URL}`;
 
   const res = await fetch(`${baseUrl}/api/hello`, {
@@ -54,14 +56,19 @@ export default async function PaintingCollection() {
 
   return (
     <StyledPaintingCollection>
-    <div>
-      <h1>Welcome to PaintingCollection!</h1>
-      <ul>
+      <div>
+        <h1>Welcome to PaintingCollection!</h1>
+        {/* <ul>
         {paintings.map((painting: { id: number; title: string }) => (
           <li key={painting.id}>Post: {painting.title}</li>
         ))}
-      </ul>
-    </div>
+      </ul> */}
+        <ul>
+          {paintings.map((painting: { title: string }) => (
+            <li key={painting.title}>Post: {painting.title}</li>
+          ))}
+        </ul>
+      </div>
     </StyledPaintingCollection>
   );
 }
