@@ -78,9 +78,7 @@ Thumbs.db
 !.env.example
 
 # Next.js
-# TODO: Uncomment if its not needed in the deploy
-# .next
-**/.next/cache/
+.next
 .vercel/
 
 # Nx
