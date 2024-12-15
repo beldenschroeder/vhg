@@ -1,8 +1,6 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, connect, model, models } from 'mongoose';
 
-const Schema = mongoose.Schema;
-
-mongoose.connect(
+connect(
   'mongodb+srv://developer:ZALisDKegp2O6rYO@cluster0.v9d4e.mongodb.net/vonherffgallery?retryWrites=true&w=majority&appName=Cluster0'
 );
 mongoose.Promise = global.Promise;
@@ -29,7 +27,7 @@ const paintingModel = () => {
     }
   });
 
-  return mongoose.models.Painting || mongoose.model('Painting', schema);
+  return models.Painting || model('Painting', schema);
 };
 
 export const db = {
