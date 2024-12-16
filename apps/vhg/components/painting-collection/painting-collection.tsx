@@ -12,20 +12,21 @@ const StyledPaintingCollection = styled.div`
   color: pink;
 `;
 
-// import dotenv from 'dotenv'
-// import path from 'path'
+import dotenv from 'dotenv';
+import path from 'path';
 
-// dotenv.config({
-//   path: path.resolve(__dirname, '../../../../.env'),
-// })
+dotenv.config({
+  path: path.resolve(__dirname, '../../../../.env'),
+})
 
+// TODO: Move to server side and replace env vars for non-NEXT_PUBLIC coutnerparts.
 async function getPaintings() {
   const baseUrl =
-    process.env.VERCEL_ENV === 'production'
-      ? `https://${process.env.VERCEL_URL}`
+    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
       : process.env.VERCEL_ENV === 'preview'
-      ? `https://${process.env.VERCEL_URL}`
-      : `http://${process.env.VERCEL_URL}`;
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 
   const res = await fetch(`${baseUrl}/api/hello`, {
     headers: {
@@ -65,7 +66,7 @@ export default async function PaintingCollection() {
       </ul> */}
         <ul>
           {paintings.map((painting: { title: string }) => (
-            <li key={painting.title}>Post: {painting.title}</li>
+            <li key={painting.title}>Title: {painting.title}</li>
           ))}
         </ul>
       </div>
