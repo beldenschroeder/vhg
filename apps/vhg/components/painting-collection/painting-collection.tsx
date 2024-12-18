@@ -4,6 +4,10 @@
 // See `./README.md#eject` for more information
 
 import styled from 'styled-components';
+import dotenv from 'dotenv';
+import path from 'path';
+import { useEffect } from 'react';
+import { usePaintingService } from '../../services/use-painting-service';
 
 /* eslint-disable-next-line */
 // export interface PaintingCollectionProps {}
@@ -12,12 +16,9 @@ const StyledPaintingCollection = styled.div`
   color: pink;
 `;
 
-import dotenv from 'dotenv';
-import path from 'path';
-
 dotenv.config({
-  path: path.resolve(__dirname, '../../../../.env'),
-})
+  path: path.resolve(__dirname, '../../../../.env')
+});
 
 // TODO: Move to server side and replace env vars for non-NEXT_PUBLIC coutnerparts.
 async function getPaintings() {
@@ -50,10 +51,41 @@ async function getPaintings() {
   return data;
 }
 
-export default async function PaintingCollection() {
-  const paintings = await getPaintings();
+export default function PaintingCollection() {
+  const paintingService = usePaintingService();
 
-  console.log('paintings', paintings);
+  // const paintings = await getPaintings();
+  const paintings = paintingService.paintings;
+
+  useEffect(() => {
+    paintingService.getAll();
+  });
+
+  const PaintingsList = () => {
+    if (!paintings) {
+      return (
+        // TODO: Replace with a spinner
+        <span>Loading...</span>
+      );
+    }
+
+    if (paintings?.length) {
+      return (
+        <ul>
+          {paintings.map((painting: { title: string }) => (
+            <li key={painting.title}>Title: {painting.title}</li>
+          ))}
+        </ul>
+      );
+    }
+
+    if (paintings?.length === 0) {
+      return (
+          // TODO: Replace with a better display.
+          <span>No paintings found</span>
+      );
+  }
+  };
 
   return (
     <StyledPaintingCollection>
@@ -64,11 +96,7 @@ export default async function PaintingCollection() {
           <li key={painting.id}>Post: {painting.title}</li>
         ))}
       </ul> */}
-        <ul>
-          {paintings.map((painting: { title: string }) => (
-            <li key={painting.title}>Title: {painting.title}</li>
-          ))}
-        </ul>
+        <PaintingsList />
       </div>
     </StyledPaintingCollection>
   );
