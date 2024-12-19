@@ -4,8 +4,8 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 dotenv.config({
-  path: path.resolve(__dirname, '../../../.env'),
-})
+  path: path.resolve(__dirname, '../../../.env')
+});
 
 interface IFileName {
   original: string;
@@ -39,22 +39,23 @@ const paintingStore = create<IPaintingStore>(() => initialState);
 export const usePaintingService = (): IPaintingService => {
   const fetch = useFetch();
   const { paintings } = paintingStore();
-  const baseUrl =
-    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : process.env.VERCEL_ENV === 'preview'
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  const protocol =
+    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' ||
+    process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview'
+      ? 'https'
+      : 'http';
+  const baseUrl = `${protocol}://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 
   return {
     paintings,
     getAll: async () => {
       const p = await fetch.get(`${baseUrl}/api/hello`);
+      // const p = await fetch.get(`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/hello`);
 
       // TODO: Remove later
       console.log('p: ', p);
 
-      // TODO: Replace with "/ai/paintings" endpoint
+      // TODO: Replace with "/api/paintings" endpoint
       paintingStore.setState({ paintings: p });
     }
   };

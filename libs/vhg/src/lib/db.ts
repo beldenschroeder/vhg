@@ -1,8 +1,13 @@
 import mongoose, { Schema, connect, model, models } from 'mongoose';
 
-connect(
-  'mongodb+srv://developer:ZALisDKegp2O6rYO@cluster0.v9d4e.mongodb.net/vonherffgallery?retryWrites=true&w=majority&appName=Cluster0'
-);
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({
+  path: path.resolve(__dirname, '../../../../.env')
+});
+
+connect(`${process.env.MONGODB_URI}`);
 mongoose.Promise = global.Promise;
 
 const paintingModel = () => {

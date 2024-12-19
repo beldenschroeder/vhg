@@ -10,8 +10,18 @@ RUN pnpm install --frozen-lockfile --prod
 
 # Rebuild the source code only when needed.
 FROM base AS builder
+ARG NODE_ENV="production"
+ENV NODE_ENV=$NODE_ENV
+ARG NEXT_PUBLIC_VERCEL_ENV="development"
+ENV NEXT_PUBLIC_VERCEL_ENV=$NEXT_PUBLIC_VERCEL_ENV
+ARG NEXT_PUBLIC_VERCEL_URL=localhost:3000
+ENV NEXT_PUBLIC_VERCEL_URL=$NEXT_PUBLIC_VERCEL_URL
 ENV NEXT_TELEMETRY_DISABLED=1
+# TODO: Remove this once the Prisma URL is no longer needed.
 ENV POSTGRES_PRISMA_URL="postgres://default:4PIVAioZE2sL@ep-misty-mouse-77177859-pooler.us-east-1.postgres.vercel-storage.com/verceldb?pgbouncer=true&connect_timeout=15"
+# TODO: Replace with a localhost MongoDB URI, as this is sensitive information that shouldn't be checked into the repo.
+ARG MONGODB_URI="mongodb+srv://developer:ZALisDKegp2O6rYO@cluster0.v9d4e.mongodb.net/vonherffgallery?retryWrites=true&w=majority&appName=Cluster0"
+ENV MONGODB_URI=$MONGODB_URI
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -21,12 +31,13 @@ RUN pnpm exec nx build vhg
 
 # Production image, copy all the files and run next.
 FROM base as runner
-ARG NODE_ENV=production
-ENV NODE_ENV=$NODE_ENV
-ARG VERCEL_ENV=development
-ENV VERCEL_ENV=$VERCEL_ENV
-ARG VERCEL_URL=localhost:3000
-ENV VERCEL_URL=$VERCEL_URL
+# TODO: ARG is only a build-time variable, so it might not be needed for some of these.
+# ARG NODE_ENV="production"
+# ENV NODE_ENV=$NODE_ENV
+# ARG NEXT_PUBLIC_VERCEL_ENV="development"
+# ENV NEXT_PUBLIC_VERCEL_ENV=$NEXT_PUBLIC_VERCEL_ENV
+# ARG NEXT_PUBLIC_VERCEL_URL=localhost:3000
+# ENV NEXT_PUBLIC_VERCEL_URL=$NEXT_PUBLIC_VERCEL_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules

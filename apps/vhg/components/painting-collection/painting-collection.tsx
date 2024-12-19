@@ -25,7 +25,7 @@ async function getPaintings() {
   const baseUrl =
     process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
       ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : process.env.VERCEL_ENV === 'preview'
+      : process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview'
       ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
       : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 

@@ -62,7 +62,9 @@ After the Docker Desktop's engine is running, start the app in a Docker containe
 pnpm i
 pnpm exec prisma generate
 pnpm exec nx container vhg
-docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
+#TODO: Remove commented out line below
+#docker run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
+docker run -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
 Open your browser and navigate to http://localhost:3000/.
@@ -79,7 +81,9 @@ After the Podman Desktop's engine is running, start the app in a Docker containe
 pnpm i
 pnpm exec prisma generate
 pnpm exec nx container vhg
+#TODO: Remove commented out line below
 podman run --env-file ./.env -p 3000:3000 -t beldenschroeder/vhg:1.0
+podman run -p 3000:3000 -t beldenschroeder/vhg:1.0
 ```
 
 Open your browser and navigate to http://localhost:3000/.
