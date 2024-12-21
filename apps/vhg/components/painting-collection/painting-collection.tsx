@@ -9,9 +9,6 @@ import path from 'path';
 import { useEffect } from 'react';
 import { usePaintingService } from '../../services/use-painting-service';
 
-/* eslint-disable-next-line */
-// export interface PaintingCollectionProps {}
-
 const StyledPaintingCollection = styled.div`
   color: pink;
 `;

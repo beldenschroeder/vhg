@@ -7,7 +7,7 @@ dotenv.config({
   path: path.resolve(__dirname, '../../../../.env')
 });
 
-connect(`${process.env.MONGODB_URI}`);
+connect(`${process.env.DB_CONN_STRING}`);
 mongoose.Promise = global.Promise;
 
 const paintingModel = () => {

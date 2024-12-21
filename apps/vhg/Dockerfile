@@ -20,8 +20,8 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # TODO: Remove this once the Prisma URL is no longer needed.
 ENV POSTGRES_PRISMA_URL="postgres://default:4PIVAioZE2sL@ep-misty-mouse-77177859-pooler.us-east-1.postgres.vercel-storage.com/verceldb?pgbouncer=true&connect_timeout=15"
 # TODO: Replace with a localhost MongoDB URI, as this is sensitive information that shouldn't be checked into the repo.
-ARG MONGODB_URI="mongodb+srv://developer:ZALisDKegp2O6rYO@cluster0.v9d4e.mongodb.net/vonherffgallery?retryWrites=true&w=majority&appName=Cluster0"
-ENV MONGODB_URI=$MONGODB_URI
+ARG DB_CONN_STRING="mongodb+srv://developer:ZALisDKegp2O6rYO@cluster0.v9d4e.mongodb.net/vonherffgallery?retryWrites=true&w=majority&appName=Cluster0"
+ENV DB_CONN_STRING=$DB_CONN_STRING
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
