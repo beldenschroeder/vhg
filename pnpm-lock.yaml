@@ -38,9 +38,6 @@ importers:
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
-      dotenv-expand:
-        specifier: ^12.0.1
-        version: 12.0.1
       mongoose:
         specifier: ^8.9.0
         version: 8.9.0
@@ -132,6 +129,9 @@ importers:
       cypress:
         specifier: ^13.6.6
         version: 13.14.2
+      dotenv-expand:
+        specifier: ^12.0.1
+        version: 12.0.1
       eslint:
         specifier: ^8.57.0
         version: 8.57.1
