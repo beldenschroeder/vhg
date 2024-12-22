@@ -49,7 +49,7 @@ export const usePaintingService = (): IPaintingService => {
   return {
     paintings,
     getAll: async () => {
-      const p = await fetch.get(`${baseUrl}/api/hello`);
+      const p = await fetch.get(`${baseUrl}/api/paintings`);
       // const p = await fetch.get(`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/hello`);
 
       // TODO: Remove later

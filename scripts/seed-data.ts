@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import dotenvExpand from 'dotenv-expand';
-import { MongoClient, Db, ObjectId } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 
 const envConfig = dotenv.config();
 dotenvExpand.expand(envConfig);
@@ -38,7 +38,7 @@ interface Gallery {
 const paintingData = [
   {
     '_id': 1,
-    'title': 'In Between',
+    'title': 'In Betweenzzz',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
     'widthInch': 60,

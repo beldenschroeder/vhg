@@ -26,7 +26,7 @@ async function getPaintings() {
       ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
       : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 
-  const res = await fetch(`${baseUrl}/api/hello`, {
+  const res = await fetch(`${baseUrl}/api/paintings`, {
     headers: {
       accept: 'application/json'
     }
