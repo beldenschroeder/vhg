@@ -1,4 +1,4 @@
-FROM docker.io/node:20-slim as base
+FROM docker.io/node:20-slim AS base
 RUN corepack enable pnpm
 
 # Install dependencies only when needed.
@@ -19,8 +19,9 @@ ENV NEXT_PUBLIC_VERCEL_URL=$NEXT_PUBLIC_VERCEL_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 # TODO: Remove this once the Prisma URL is no longer needed.
 ENV POSTGRES_PRISMA_URL="postgres://default:4PIVAioZE2sL@ep-misty-mouse-77177859-pooler.us-east-1.postgres.vercel-storage.com/verceldb?pgbouncer=true&connect_timeout=15"
-# TODO: Replace with a localhost MongoDB URI, as this is sensitive information that shouldn't be checked into the repo.
-ARG DB_CONN_STRING="mongodb+srv://developer:ZALisDKegp2O6rYO@cluster0.v9d4e.mongodb.net/vonherffgallery?retryWrites=true&w=majority&appName=Cluster0"
+ARG DB_NAME="vonherffgallery"
+ENV DB_NAME=$DB_NAME
+ARG DB_CONN_STRING="mongodb://host.docker.internal:27017/${DB_NAME}"
 ENV DB_CONN_STRING=$DB_CONN_STRING
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -30,7 +31,7 @@ RUN pnpm exec prisma generate
 RUN pnpm exec nx build vhg
 
 # Production image, copy all the files and run next.
-FROM base as runner
+FROM base AS runner
 # TODO: ARG is only a build-time variable, so it might not be needed for some of these.
 # ARG NODE_ENV="production"
 # ENV NODE_ENV=$NODE_ENV

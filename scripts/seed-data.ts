@@ -14,8 +14,7 @@ interface PaintingFileName {
 }
 
 interface Painting {
-  _id: ObjectId;
-  id: number;
+  _id: number;
   title: string;
   medium: string;
   category: string;
@@ -38,8 +37,7 @@ interface Gallery {
 
 const paintingData = [
   {
-    '_id': new ObjectId(),
-    'id': 1,
+    '_id': 1,
     'title': 'In Between',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -52,8 +50,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 2,
+    '_id': 2,
     'title': 'Old Guards',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -66,8 +63,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 3,
+    '_id': 3,
     'title': 'Trees in Spring',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -80,8 +76,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 4,
+    '_id': 4,
     'title': 'South Sea',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -94,8 +89,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 5,
+    '_id': 5,
     'title': 'Lake and Mountain Blues',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -108,8 +102,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 6,
+    '_id': 6,
     'title': 'Whirl',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -122,8 +115,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 7,
+    '_id': 7,
     'title': 'The Cut',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -136,8 +128,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 8,
+    '_id': 8,
     'title': 'Turquoise Lake',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -150,8 +141,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 9,
+    '_id': 9,
     'title': 'Sun and Wind',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -164,8 +154,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 10,
+    '_id': 10,
     'title': 'Blue Lake, Orange Sky',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -178,8 +167,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 11,
+    '_id': 11,
     'title': 'Exotic',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -192,8 +180,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 12,
+    '_id': 12,
     'title': 'Shadows',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -206,8 +193,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 13,
+    '_id': 13,
     'title': 'Willows',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -220,8 +206,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 14,
+    '_id': 14,
     'title': 'Blue Sun',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -234,8 +219,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 15,
+    '_id': 15,
     'title': 'Vision',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -248,8 +232,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 16,
+    '_id': 16,
     'title': 'Big Falls',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -262,8 +245,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 17,
+    '_id': 17,
     'title': 'The Gorge',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -276,8 +258,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 18,
+    '_id': 18,
     'title': 'Mystery Passage',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -290,8 +271,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 19,
+    '_id': 19,
     'title': 'Small Waterfall',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -304,8 +284,7 @@ const paintingData = [
     }
   },
   {
-    '_id': new ObjectId(),
-    'id': 20,
+    '_id': 20,
     'title': 'Poplar Trees',
     'medium': 'Oil on Canvas',
     'category': 'Abstract',
@@ -318,8 +297,7 @@ const paintingData = [
     }
   }
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 21,
+  //   '_id': 21,
   //   'title': 'Aspen Tree New Mexico',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',
@@ -332,8 +310,7 @@ const paintingData = [
   //   }
   // },
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 22,
+  //   '_id': 22,
   //   'title': 'Tropical Beauty',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',
@@ -346,8 +323,7 @@ const paintingData = [
   //   }
   // },
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 23,
+  //   '_id': 23,
   //   'title': 'Water around Rock',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',
@@ -360,8 +336,7 @@ const paintingData = [
   //   }
   // },
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 24,
+  //   '_id': 24,
   //   'title': 'Birds over Water',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',
@@ -374,8 +349,7 @@ const paintingData = [
   //   }
   // },
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 25,
+  //   '_id': 25,
   //   'title': 'Creek in the Park',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',
@@ -388,8 +362,7 @@ const paintingData = [
   //   }
   // },
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 26,
+  //   '_id': 26,
   //   'title': 'Path into the Hazy Distance',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',
@@ -402,8 +375,7 @@ const paintingData = [
   //   }
   // },
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 27,
+  //   '_id': 27,
   //   'title': 'Sun behind Trees',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',
@@ -416,8 +388,7 @@ const paintingData = [
   //   }
   // },
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 28,
+  //   '_id': 28,
   //   'title': 'Trees in the Fall',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',
@@ -430,8 +401,7 @@ const paintingData = [
   //   }
   // },
   // {
-  //   '_id': new ObjectId(),
-  //   'id': 29,
+  //   '_id': 29,
   //   'title': 'Twilight',
   //   'medium': 'Oil on Canvas',
   //   'category': 'Abstract',

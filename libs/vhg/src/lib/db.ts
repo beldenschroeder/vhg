@@ -12,6 +12,7 @@ mongoose.Promise = global.Promise;
 
 const paintingModel = () => {
   const schema = new Schema({
+    id: { type: Number, required: true },
     title: { type: String, required: true },
     medium: { type: String, required: true },
     category: { type: String, required: true },

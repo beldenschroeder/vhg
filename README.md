@@ -38,6 +38,14 @@ If you ever need to update you Prisma schema (_schema.prisma_), you'll also need
 pnpm exec prisma generate
 ```
 
+## Seed Data for the Database
+
+This project uses MongoDB. You'll need to have MongoDB set up locally on your machine. After this is done, seed data into your local _vonherffgallery_ database by running
+
+```console
+npm run seed
+```
+
 ## Start the app
 
 ### Run the app on Vercel
