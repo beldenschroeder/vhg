@@ -30,5 +30,5 @@ jobs:
             ECR_REGISTRY: ${{ steps.login-pf-aws-ecr.outputs.registry }}
             IMAGE_TAG: v1
           run: |
-            docker build --build-arg NODE_ENV=production --build-arg NEXT_PUBLIC_VERCEL_ENV=production --build-arg NEXT_PUBLIC_VERCEL_URL=vhgapp.beldenschroeder.me -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f apps/vhg/Dockerfile .
+            docker build --build-arg NODE_ENV=production --build-arg NEXT_PUBLIC_VERCEL_ENV=production --build-arg NEXT_PUBLIC_VERCEL_URL=vhgapp.beldenschroeder.me --build-arg DB_NAME=vonherffgallery --build-arg DB_CONN_STRING=mongodb://host.docker.internal:27017/${DB_NAME} -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f apps/vhg/Dockerfile .
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
