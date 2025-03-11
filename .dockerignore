@@ -1,0 +1,46 @@
+# Compiled output
+dist
+tmp
+/out-tsc
+
+#Docker
+Dockerfile*
+.dockerignore
+docker
+
+# dependencies
+node_modules/
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode
+
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+
+# Crash log files
+crash.log
+crash.*.log
+
+# System Files
+.DS_Store
+Thumbs.db
+.env*
+
+# Next.js
+.next/
+.vercel/
+
+# Miscellaneous
+/coverage
+npm-debug.log
