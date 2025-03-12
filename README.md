@@ -23,10 +23,24 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Running the App Locally with a Docker Container
 
-The run the application locally _with_ a Docker container, ensure you are running [Docker Desktop](https://www.docker.com/products/docker-desktop/), and execute the folloing in your terminal:
+The run the application locally _with_ a Docker container, ensure you are running [Docker Desktop](https://www.docker.com/products/docker-desktop/), and execute the folloing in your terminal.
 
 ```console
 $docker build -t vhg .
+$docker run -p 3000:3000 vhg
+```
+
+For development environment, run
+
+```console
+$docker build -t vhg -f Dockerfile.dev .
+$docker run -p 3000:3000 vhg
+```
+
+For production environment, run
+
+```console
+$docker build -t vhg -f Dockerfile.prod .
 $docker run -p 3000:3000 vhg
 ```
 
