@@ -1,10 +1,10 @@
-import styles from './page.module.css';
+import * as styles from './page.css';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Von Heff Gallery</h1>
+    <div className={styles.container}>
+      <main>
+        <h1>Welcome to Von Heff Gallery</h1>
       </main>
     </div>
   );
