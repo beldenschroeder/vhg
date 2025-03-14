@@ -1,0 +1,11 @@
+# Ignore build output
+.next
+coverage
+dist
+build
+
+# Ignore dependency managers
+node_modules
+
+# Ignore various files
+*.lock
