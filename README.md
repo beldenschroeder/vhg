@@ -25,11 +25,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 The run the application locally _with_ a Docker container, ensure you are running [Docker Desktop](https://www.docker.com/products/docker-desktop/), and execute the folloing in your terminal.
 
-```console
-$docker build -t vhg .
-$docker run -p 3000:3000 vhg
-```
-
 For development environment, run
 
 ```console
