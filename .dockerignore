@@ -23,6 +23,7 @@ node_modules/
 
 # Git
 .git
+.github
 .gitignore
 
 # Documentation
@@ -41,18 +42,6 @@ Thumbs.db
 .next/
 .vercel/
 
-# Nx
-.nx/
-
-# Misc
-# TODO: Consider removing, as the project doesn't use Sass
-/.sass-cache
-/connect.lock
+# Miscellaneous
 /coverage
-/libpeerconnection.log
 npm-debug.log
-testem.log
-/typings
-
-# TODO: Add back later if can get Docker to suport pnpm
-# pnpm-lock.yaml
