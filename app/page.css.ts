@@ -1,6 +1,8 @@
 import { style } from '@vanilla-extract/css';
 
 export const container = style({
-  padding: 10,
-  backgroundColor: 'lightblue'
+  paddingTop: 50,
+  paddingRight: 20,
+  paddingBottom: 20,
+  paddingLeft: 20
 });
