@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { mediaQueries } from '../../styles/breakpoints';
-import { components } from '../../styles/mui';
+import { mediaQueries } from '../styles/breakpoints';
+import { components } from '../styles/mui';
 
 const navBarToolbarHeight = components.Toolbar.height.sm;
 const navBarToolbarHeightMobile = components.Toolbar.height.xs;
@@ -11,6 +11,9 @@ export const body = style({
   marginTop: bodyMarginTopMobile,
   paddingLeft: 16,
   paddingRight: 16,
+  ':focus': {
+    outline: 'none'
+  },
   '@media': {
     [mediaQueries.sm]: {
       marginTop: bodyMarginTop,

@@ -1,13 +1,7 @@
-import CssBaseline from '@mui/material/CssBaseline';
-import Body from './components/Body';
-import NavBar from './components/NavBar';
+import Typography from '@mui/material/Typography';
 
-export default function Home() {
-  return (
-    <>
-      <CssBaseline />
-      <NavBar />
-      <Body />
-    </>
-  );
-}
+const Home = () => {
+  return <Typography component="p">Home content.</Typography>;
+};
+
+export default Home;

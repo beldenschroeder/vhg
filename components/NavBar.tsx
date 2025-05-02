@@ -14,7 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { navBarTitle, navBarTitleMobile } from '../../styles/typography';
+import { navBarTitle, navBarTitleMobile } from '../styles/typography';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Paintings', 'Galleries'];

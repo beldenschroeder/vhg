@@ -10,7 +10,3 @@ export const navBarTitleMobile: SxProps<Theme> = {
   my: 2,
   fontSize: '1.25rem'
 };
-
-export const bodyTitle: SxProps<Theme> = {
-  fontSize: '1.25rem'
-};

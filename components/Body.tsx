@@ -1,11 +1,9 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
-import Typography from '@mui/material/Typography';
-import { bodyTitle } from '@/styles/typography';
+import React, { useEffect, useRef, ReactNode } from 'react';
 import * as styles from './Body.css';
 
-const Body = () => {
+const Body = ({ children }: { children: ReactNode }) => {
   const containerRef = useRef<HTMLElement | null>(null);
 
   // Focus the container element when the component mounts.
@@ -17,9 +15,7 @@ const Body = () => {
 
   return (
     <main ref={containerRef} tabIndex={-1} className={styles.body}>
-      <Typography component="h2" sx={bodyTitle}>
-        Von Herff Gallery
-      </Typography>
+      {children}
     </main>
   );
 };
