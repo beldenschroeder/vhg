@@ -14,6 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { navBarTitle, navBarTitleMobile } from '../../styles/typography';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Paintings', 'Galleries'];
@@ -27,8 +28,8 @@ const NavBar = () => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Von Herff Gallery
+      <Typography component="h1" sx={navBarTitleMobile}>
+        Von Herff Gallery XS
       </Typography>
       <Divider />
       <List>
@@ -44,7 +45,7 @@ const NavBar = () => {
   );
 
   return (
-    <>
+    <header>
       <AppBar component="nav">
         <Toolbar>
           <IconButton
@@ -56,11 +57,7 @@ const NavBar = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
+          <Typography component="h1" sx={navBarTitle}>
             Von Herff Gallery
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -91,7 +88,7 @@ const NavBar = () => {
           {drawer}
         </Drawer>
       </nav>
-    </>
+    </header>
   );
 };
 

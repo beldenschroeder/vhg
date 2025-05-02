@@ -1,6 +1,6 @@
 'use client';
 import { createTheme } from '@mui/material/styles';
-import { colors } from '../styles/app';
+import { app } from '../styles/colors';
 
 const theme = createTheme({
   cssVariables: true,
@@ -9,25 +9,25 @@ const theme = createTheme({
   },
   palette: {
     background: {
-      default: colors.background
+      default: app.background
     },
     text: {
-      primary: colors.text
+      primary: app.text
     }
   },
   components: {
     MuiAppBar: {
       styleOverrides: {
         colorPrimary: {
-          backgroundColor: colors.background
+          backgroundColor: app.background
         }
       }
     },
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: colors.background,
-          color: colors.text
+          backgroundColor: app.background,
+          color: app.text
         }
       }
     }

@@ -1,4 +1,4 @@
-export const colors = {
+export const app = {
   background: '#11171d',
   text: '#fff'
 };
