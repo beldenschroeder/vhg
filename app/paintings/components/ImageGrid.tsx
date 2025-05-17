@@ -2,9 +2,9 @@ import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import ListSubheader from '@mui/material/ListSubheader';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
+import Image from 'next/image';
 
 const itemData = [
   {
@@ -82,16 +82,27 @@ const itemData = [
 
 const ImageGrid = () => {
   return (
-    <ImageList sx={{ width: 500, height: 450 }}>
-      <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div">December</ListSubheader>
-      </ImageListItem>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+    <ImageList
+      gap={8}
+      sx={{
+        gridTemplateColumns: {
+          xs: 'repeat(2, 1fr) !important',
+          sm: 'repeat(3, 1fr) !important',
+          md: 'repeat(4, 1fr) !important',
+          lg: 'repeat(5, 1fr) !important',
+          xl: 'repeat(6, 1fr) !important'
+        },
+        display: 'grid'
+      }}
+    >
+      {itemData.map((item, index) => (
+        <ImageListItem key={index}>
+          <Image
             src={`${item.img}?w=248&fit=crop&auto=format`}
             alt={item.title}
+            width={248}
+            height={248}
+            style={{ width: '100%', height: 'auto' }}
             loading="lazy"
           />
           <ImageListItemBar
