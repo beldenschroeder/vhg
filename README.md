@@ -1,4 +1,4 @@
-# Von Herff Gallery 
+# Von Herff Gallery
 
 ## Environment Configuration
 
@@ -72,6 +72,7 @@ Follow the deployment instructions in the [README.md](https://github.com/beldens
 The app should now be hosted on http://vhgapp.beldenschroeder.me.
 
 TODO: Remove this following section later.
+
 ## Vercel Info
 
 ### Getting Started
